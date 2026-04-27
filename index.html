@@ -10,87 +10,102 @@
 
     <meta
       name="description"
-      content="Portfólio pessoal de Kefilwe Lourenço, pessoa desenvolvedora Full Stack JavaScript em formação pela Generation Brasil, com projetos, experiências e formas de contato."
+      content="Portfólio pessoal de Kefilwe Lourenço, desenvolvedor Full Stack JavaScript em formação pela Generation Brasil, com projetos, experiências e formas de contato."
     >
 
     <meta
       name="keywords"
       content="Kefilwe Lourenço, portfólio, desenvolvimento web, HTML, CSS, JavaScript, Full Stack, Generation Brasil"
->
-
-    <title>Portfólio | Kefilwe Lourenço</title>
+    >
 
     <meta name="robots" content="index, follow">
 
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
 
-    <title>Portfólio Generation Brasil</title>
+    <title>Portfólio | Kefilwe Lourenço</title>
 </head>
+
 <body>
-    <!-- Cabeçalho da Página (header)-->
-     <header>
+
+    <!-- Cabeçalho da Página (header) -->
+    <header>
 
         <div class="menu-content">
 
             <!-- TÍTULO -->
-             <a href="index.html" id="titulo">Portifólio</a>
+            <a href="index.html" id="titulo">Portfólio</a>
 
-             <!-- MENU -->
-              <nav>
+            <!-- MENU -->
+            <nav>
                 <ul class="menu-list">
                     <li><a href="#hero">Início</a></li>
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#projects">Projetos</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
-              </nav>
+            </nav>
+
         </div>
 
-     </header>
+    </header>
 
-     <!-- Seção Principal da Página (main)-->
-      <main>
+    <!-- Seção Principal da Página (main) -->
+    <main>
 
         <!-- Seção de Boas Vindas -->
         <section id="hero" class="section-container hero-container">
 
             <article class="hero-content">
 
-                <span> Olá, eu sou o Kefilwe Lourenço</span>
+                <span>👋 Olá, eu sou Kefilwe Lourenço</span>
+
                 <h1>Desenvolvedor Full Stack</h1>
-                <p>Crio soluções digitais com foco em organização, usabilidade e impacto social</p>
+
+                <p>
+                    Crio soluções digitais com foco em organização, usabilidade e impacto social.
+                </p>
 
                 <div class="buttons-container">
-                    <a href="#contact" clas="botao">Entre em Contato</a>
-                    <a href="about" class="botao-outline">Saiba Mais...</a>
+                    <a href="#contact" class="botao">Entre em Contato</a>
+                    <a href="#about" class="botao-outline">Saiba Mais...</a>
                 </div>
+
             </article>
 
             <!-- IMAGEM -->
             <figure class="hero-image">
                 <img 
-                src="./assets/img/foto_dev_man.svg"
-                alt="Foto do autor."
-                class="float-animation"
+                    src="./assets/img/foto_dev_man.svg"
+                    alt="Ilustração de uma pessoa desenvolvedora programando."
+                    class="float-animation"
+                    width="350"
                 >    
             </figure>
 
         </section>
 
+        <hr>
+
         <!-- Seção Sobre o autor -->
-         <section id="about" class="section-container about-container">
+        <section id="about" class="section-container about-container">
 
             <figure class="about-image">
-                <img src="./assets/img/avatar_dev_man.svg" alt="Foto do perfil">
+                <img 
+                    src="./assets/img/avatar_dev_man.svg" 
+                    alt="Avatar de Kefilwe Lourenço"
+                    width="200"
+                >
             </figure>
 
             <article class="about-content">
+
                 <h2>Sobre mim</h2>
+
                 <p>
-                     Olá! Sou Kefilwe Lourenço, desenvolvedor Full Stack em formação pela Generation Brasil.
-                     Estou construindo minha trajetória na tecnologia com foco em desenvolvimento web,
-                     organização de código e criação de soluções digitais que sejam funcionais, acessíveis
-                     e úteis para as pessoas.
+                    Olá! Sou Kefilwe Lourenço, desenvolvedor Full Stack em formação pela Generation Brasil.
+                    Estou construindo minha trajetória na tecnologia com foco em desenvolvimento web,
+                    organização de código e criação de soluções digitais funcionais, acessíveis
+                    e úteis para as pessoas.
                 </p>
 
                 <p>
@@ -106,91 +121,241 @@
                 </p>
                 
                 <div class="about-buttons-data">
+
                     <div class="buttons-container">
-                        <a href="#" target="_blank" class="botao">GitHub</a>
-                        <a href="#" target="_blank" class="botao-outline">Currículo</a>
+                        <a 
+                            href="https://github.com/KefilweLourenco" 
+                            target="_blank" 
+                            class="botao"
+                        >
+                            GitHub
+                        </a>
+
+                        <a 
+                            href="./assets/docs/curriculo-kefilwe-lourenco.pdf" 
+                            target="_blank" 
+                            class="botao-outline"
+                        >
+                            Currículo
+                        </a>
                     </div>
 
                     <div class="data-container">
+
                         <div class="data-item">
-                            <span class="data-number">100</span>
-                            <span class="data-label">Seguidores</span>
+                            <span class="data-number">10+</span>
+                            <span class="data-label">Projetos em desenvolvimento</span>
                         </div>
+
                         <div class="data-item">
-                            <span class="data-number">10</span>
-                            <span class="data-label">Repositórios</span>
+                            <span class="data-number">Full Stack</span>
+                            <span class="data-label">Formação em andamento</span>
                         </div>
+
                     </div>
+
                 </div>
+
             </article>
 
-         </section>
+        </section>
 
-         <!-- Seção Projetos do autor -->
-         <section id="projects" class="section-container projects-container">
+        <hr>
+
+        <!-- Seção Projetos do autor -->
+        <section id="projects" class="section-container projects-container">
+
             <h2>Meus Projetos</h2>
 
             <!-- Swiper Container -->
-             <div class="swiper projects-swiper">
+            <div class="swiper projects-swiper">
+
                 <div class="swiper-wrapper">
+
                     <div class="swiper-slide">
 
                         <article class="project-card">
+
                             <figure class="project-image">
-                                <img src="./assets/icons/languages/github.svg"
-                                    alt="Ícone GitHub">
+                                <img 
+                                    src="./assets/icons/languages/github.svg"
+                                    alt="Ícone do GitHub"
+                                    width="80"
+                                >
                             </figure>
 
                             <div class="project-content">
-                                <h3>Projeto GitHub</h3>
-                                <p>Projeto Desenvolvido no GitHub</p>
+
+                                <h3>Meu Portfólio</h3>
+
+                                <p>
+                                    Projeto de portfólio pessoal desenvolvido com HTML, CSS e JavaScript,
+                                    seguindo a proposta da trilha de Fundamentos Web da Generation Brasil.
+                                </p>
 
                                 <div class="project-tags">
-                                    <span class="tag">GitHub</span>
+                                    <span class="tag">HTML</span>
+                                    <span class="tag">CSS</span>
+                                    <span class="tag">JavaScript</span>
                                 </div>
 
                                 <div class="project-buttons">
-                                    <a href="a" target="_blank" class="botao botao-sm">GitHub</a>
-                                    <a href="#" target="botao-outline botao-sm">Deploy</a>
+                                    <a 
+                                        href="https://github.com/KefilweLourenco/Meu-Portifolio" 
+                                        target="_blank" 
+                                        class="botao botao-sm"
+                                    >
+                                        GitHub
+                                    </a>
+
+                                    <a 
+                                        href="https://KefilweLourenco.github.io/Meu-Portifolio" 
+                                        target="_blank" 
+                                        class="botao-outline botao-sm"
+                                    >
+                                        Deploy
+                                    </a>
                                 </div>
+
                             </div>
 
                         </article>
+
                     </div>
+
                 </div>
 
-                <!-- Botões de navegaçao -->
-                 <div class="swiper-button-next"></div>
-                 <div class="swiper-button-prev"></div>
+                <!-- Botões de navegação -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
 
-                 <!-- Paginação -->
-                  <div class="swiper-pagination"></div>
-             </div>
+                <!-- Paginação -->
+                <div class="swiper-pagination"></div>
 
-         </section>
+            </div>
 
-         <!-- Seção Formulário de Contato e Redes Sociais -->
-         <section id="contact" class="section-container contact-container">
+        </section>
+
+        <hr>
+
+        <!-- Seção Formulário de Contato e Redes Sociais -->
+        <section id="contact" class="section-container contact-container">
 
             <!-- REDES SOCIAIS -->
-             <article class="contact-info">
+            <article class="contact-info">
+
                 <h2>Entre em Contato</h2>
-                <p>Sinta-se à vontade para entrar em contato comigo!</p>
+
+                <p>
+                    Sinta-se à vontade para entrar em contato comigo pelas redes sociais
+                    ou pelo formulário abaixo.
+                </p>
 
                 <div class="social-container">
-                    <a href="a" target="_blank" class="social-icon" aria-label="Linkedln">
-                        <img src="./assets/"
+
+                    <a 
+                        href="https://www.linkedin.com/in/kefilwe-lourenco/" 
+                        target="_blank" 
+                        class="social-icon" 
+                        aria-label="LinkedIn"
+                    >
+                        <img 
+                            src="./assets/icons/social/linkedin.svg" 
+                            alt="Link para o LinkedIn"
+                            width="40"
+                        >
                     </a>
+
+                    <a 
+                        href="https://github.com/KefilweLourenco" 
+                        target="_blank" 
+                        class="social-icon" 
+                        aria-label="GitHub"
+                    >
+                        <img 
+                            src="./assets/icons/social/github.svg" 
+                            alt="Link para o GitHub"
+                            width="40"
+                        >
+                    </a>
+
+                    <a 
+                        href="https://www.instagram.com/kaefebr/" 
+                        target="_blank" 
+                        class="social-icon" 
+                        aria-label="Instagram"
+                    >
+                        <img 
+                            src="./assets/icons/social/instagram.svg" 
+                            alt="Link para o Instagram"
+                            width="40"
+                        >
+                    </a>
+
                 </div>
-             </article>
 
-         </section>
+            </article>
 
-      </main>
+            <!-- FORMULÁRIO -->
+            <form id="formulario">
+
+                <label for="nome">Nome</label>
+                <input 
+                    id="nome" 
+                    name="nome" 
+                    type="text" 
+                    placeholder="Digite o seu nome completo"
+                >
+                <span id="erro-nome"></span>
+
+                <br><br>
+
+                <label for="email">E-mail</label>
+                <input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    placeholder="Digite o seu e-mail"
+                >
+                <span id="erro-email"></span>
+
+                <br><br>
+
+                <label for="assunto">Assunto</label>
+                <input 
+                    id="assunto" 
+                    name="assunto" 
+                    type="text" 
+                    placeholder="Digite o assunto da mensagem"
+                >
+                <span id="erro-assunto"></span>
+
+                <br><br>
+
+                <label for="mensagem">Mensagem</label>
+                <textarea 
+                    id="mensagem" 
+                    name="mensagem" 
+                    placeholder="Digite sua mensagem"
+                    rows="5"
+                    cols="40"
+                ></textarea>
+                <span id="erro-mensagem"></span>
+
+                <br><br>
+
+                <button class="botao" type="submit">Enviar Mensagem</button>
+
+            </form>
+
+        </section>
+
+    </main>
       
-      <!-- Rodapé da Página (footer)-->
-       <footer>
+    <!-- Rodapé da Página (footer) -->
+    <footer>
+        <p>Desenvolvido por Kefilwe Lourenço - 2026</p>
+    </footer>
 
-       </footer>
 </body>
 </html>
