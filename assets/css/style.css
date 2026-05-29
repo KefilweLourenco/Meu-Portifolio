@@ -80,6 +80,14 @@ body {
     color: var(--black);
 }
 
+hr {
+    width: min(70rem, calc(100% - 2rem));
+    height: 0.05rem;
+    margin: 0 auto;
+    border: 0;
+    background: linear-gradient(to right, transparent, rgba(212, 160, 23, 0.35), transparent);
+}
+
 main {
     flex: 1;
 }
@@ -93,6 +101,7 @@ main {
 
 .buttons-container {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-sm);
 }
 
@@ -135,6 +144,11 @@ main {
     transform: translateY(-0.25rem);
 }
 
+.botao-sm {
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+}
+
 header {
     position: sticky;
     top: 0;
@@ -173,7 +187,7 @@ header a:hover {
 
 .menu-list {
     display: flex;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
     list-style: none;
 }
 
@@ -209,9 +223,51 @@ header a:hover {
 
 .hero-content p,
 .about-content p,
-.contact-info p {
+.contact-info p,
+.section-heading p,
+.info-card p {
     font-size: var(--text-lg);
     color: var(--gray-400);
+}
+
+.hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(9rem, 1fr));
+    max-width: 29rem;
+}
+
+.hero-actions .botao,
+.hero-actions .botao-outline {
+    width: 100%;
+}
+
+.section-heading {
+    max-width: 48rem;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+}
+
+.section-heading h2,
+.about-content h2,
+.projects-container h2,
+.contact-info h2,
+.featured-container h2,
+.technologies-container h2,
+.journey-container h2,
+.process-container h2 {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.section-kicker {
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--text-base);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: var(--purple-100);
 }
 
 /* IMAGEM PRINCIPAL DO HERO */
@@ -272,15 +328,6 @@ header a:hover {
     margin: 0 auto;
 }
 
-.about-content h2,
-.projects-container h2,
-.contact-info h2 {
-    margin-bottom: var(--spacing-md);
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    color: var(--gold);
-}
-
 .about-content p {
     margin-bottom: var(--spacing-sm);
     text-align: justify;
@@ -327,6 +374,67 @@ header a:hover {
     scroll-margin-top: 3rem;
     margin: var(--spacing-2xl) auto;
     text-align: center;
+}
+
+.featured-container,
+.technologies-container,
+.journey-container,
+.process-container {
+    margin: var(--spacing-2xl) auto;
+}
+
+.featured-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border: 0.1rem solid rgba(212, 160, 23, 0.25);
+    border-radius: var(--radius-lg);
+    background:
+        linear-gradient(135deg, rgba(122, 31, 43, 0.45), rgba(20, 8, 10, 0.2)),
+        var(--surface);
+    box-shadow: var(--shadow-lg);
+}
+
+.featured-content {
+    min-width: 0;
+}
+
+.featured-content h3,
+.info-card h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: #F5F5F5;
+}
+
+.featured-buttons {
+    justify-content: flex-start;
+    margin-top: var(--spacing-lg);
+}
+
+.check-list {
+    display: grid;
+    gap: 0.75rem;
+    list-style: none;
+    color: var(--gray-400);
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.check-list li::before {
+    content: "";
+    position: absolute;
+    top: 0.65rem;
+    left: 0;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: var(--radius-full);
+    background-color: var(--gold);
+    box-shadow: 0 0 0 0.25rem rgba(212, 160, 23, 0.15);
 }
 
 .projects-swiper {
@@ -413,10 +521,70 @@ header a:hover {
 
 .project-buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
     margin-top: var(--spacing-sm);
+}
+
+.tech-grid,
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-md);
+}
+
+.process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.info-card {
+    padding: var(--spacing-lg);
+    border: 0.1rem solid rgba(212, 160, 23, 0.2);
+    border-radius: var(--radius-md);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-default);
+}
+
+.info-card:hover {
+    border-color: rgba(212, 160, 23, 0.55);
+    transform: translateY(-0.2rem);
+}
+
+.info-card p {
+    font-size: var(--text-base);
+}
+
+.timeline {
+    display: grid;
+    gap: var(--spacing-md);
+    max-width: 48rem;
+    margin: 0 auto;
+    list-style: none;
+    counter-reset: timeline;
+}
+
+.timeline li {
+    position: relative;
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 4.5rem;
+    border: 0.1rem solid rgba(212, 160, 23, 0.2);
+    border-radius: var(--radius-md);
+    background-color: var(--surface);
+    color: var(--gray-400);
+}
+
+.timeline li::before {
+    counter-increment: timeline;
+    content: counter(timeline, decimal-leading-zero);
+    position: absolute;
+    top: 50%;
+    left: var(--spacing-md);
+    transform: translateY(-50%);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--gold);
 }
 
 .swiper-wrapper {
@@ -535,6 +703,11 @@ form textarea:focus {
     outline: none;
 }
 
+form input[aria-invalid="true"],
+form textarea[aria-invalid="true"] {
+    border-color: var(--error);
+}
+
 form textarea {
     min-height: 5rem;
     resize: none;
@@ -620,7 +793,7 @@ footer {
         font-size: var(--text-base);
     }
 
-    .section-container span {
+    .hero-content span {
         font-size: var(--text-lg);
     }
 
@@ -701,6 +874,19 @@ footer {
         margin: var(--spacing-lg) auto 0;
     }
 
+    .featured-container,
+    .technologies-container,
+    .journey-container,
+    .process-container {
+        margin: var(--spacing-lg) auto;
+    }
+
+    .featured-card,
+    .tech-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
     .projects-swiper {
         margin: 0;
         padding: var(--spacing-sm) var(--spacing-lg) 2.5rem;
@@ -708,9 +894,7 @@ footer {
 
     .project-card {
         width: 100%;
-        height: 30rem;
-        min-height: 30rem;
-        max-height: 30rem;
+        min-height: 31rem;
         max-width: 100%;
     }
 
@@ -799,7 +983,7 @@ footer {
         font-size: var(--text-base);
     }
 
-    .section-container span {
+    .hero-content span {
         font-size: var(--text-lg);
     }
 
@@ -832,6 +1016,11 @@ footer {
         flex-direction: column;
         gap: 0.75rem;
         width: 100%;
+    }
+
+    .hero-actions {
+        grid-template-columns: 1fr;
+        max-width: 100%;
     }
 
     .buttons-container .botao,
@@ -891,12 +1080,12 @@ footer {
         position: relative;
         margin: 0;
         padding: var(--spacing-sm) 0 2rem 0;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .project-card {
         width: 100%;
-        height: 20rem;
+        min-height: 31rem;
         max-width: 20rem;
     }
 

@@ -1,262 +1,363 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
-    <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Fonte do Google - Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    
     <meta charset="UTF-8">
-	
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
     <meta name="author" content="Kefilwe Lourenço">
-
     <meta
         name="description"
-        content="Portfólio pessoal de Kefilwe Lourenço, desenvolvedor Full Stack JavaScript em formação pela Generation Brasil, com projetos, experiências e formas de contato."
+        content="Portfólio profissional de Kefilwe Lourenço, desenvolvedor Full Stack JavaScript formado pela Generation Brasil e instrutor de tecnologia."
     >
-
     <meta
         name="keywords"
-        content="Kefilwe Lourenço, portfólio, desenvolvimento web, HTML, CSS, JavaScript, Full Stack, Generation Brasil"
+        content="Kefilwe Lourenço, portfólio, desenvolvimento web, JavaScript, TypeScript, React, NestJS, Full Stack, Generation Brasil"
     >
-
     <meta name="robots" content="index, follow">
 
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
-
-    <!-- SWIPER CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> 
-
-    <!-- Link para a Folha de Estilo da Página - CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>Portfólio | Kefilwe Lourenço</title>
 </head>
 
 <body>
-
-    <!-- Cabeçalho da Página -->
     <header>
-
         <div class="menu-content">
+            <a href="#hero" id="titulo" aria-label="Voltar para o início">Portfólio</a>
 
-            <!-- TÍTULO -->
-            <a href="index.html" id="titulo">Portfólio</a>
-
-            <!-- MENU -->
-            <nav>
+            <nav aria-label="Navegação principal">
                 <ul class="menu-list">
                     <li><a href="#hero">Início</a></li>
                     <li><a href="#about">Sobre</a></li>
+                    <li><a href="#featured">Destaque</a></li>
                     <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#technologies">Tecnologias</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
             </nav>
-
         </div>
-
     </header>
 
-    <!-- Seção Principal da Página -->
     <main>
-
-        <!-- Seção de Boas Vindas -->
-        <section id="hero" class="section-container hero-container">
-
+        <section id="hero" class="section-container hero-container" aria-labelledby="hero-title">
             <article class="hero-content">
+                <span>Olá, eu sou Kefilwe Lourenço</span>
 
-                <span>👋🏾 Olá, eu sou Kefilwe Lourenço</span>
-
-                <h1>Desenvolvedor Full Stack</h1>
+                <h1 id="hero-title">Desenvolvedor Full Stack JavaScript</h1>
 
                 <p>
-                    Crio soluções digitais com foco em organização, usabilidade e impacto social.
+                    Uno tecnologia, educação, acessibilidade e experiência do usuário para criar aplicações web úteis, humanas e responsivas.
                 </p>
 
-                <div class="buttons-container">
-                    <a href="#contact" class="botao">Entre em Contato</a>
-                    <a href="#about" class="botao-outline">Saiba Mais...</a>
+                <div class="buttons-container hero-actions" aria-label="Links principais">
+                    <a href="https://github.com/KefilweLourenco" target="_blank" rel="noopener noreferrer" class="botao">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kefilwe-lourenco/" target="_blank" rel="noopener noreferrer" class="botao-outline">LinkedIn</a>
+                    <a href="./assets/docs/Curriculo_Kefilwe_Lourenco_dev_fullstack.pdf" target="_blank" class="botao-outline">Currículo</a>
+                    <a href="#contact" class="botao">Contato</a>
                 </div>
-
             </article>
 
-            <!-- IMAGEM PRINCIPAL -->
             <figure class="hero-image">
-                <img 
+                <img
                     src="./assets/img/847e5943-4a92-41ad-9f58-2784e48c1ffe.png"
                     alt="Ilustração de Kefilwe Lourenço como desenvolvedor"
-                    class="hero-photo"
+                    class="hero-photo float-animation"
                     width="420"
-                >    
+                >
+            </figure>
+        </section>
+
+        <hr>
+
+        <section id="about" class="section-container about-container" aria-labelledby="about-title">
+            <figure class="about-image">
+                <img
+                    id="github-avatar"
+                    src="./assets/img/847e5943-4a92-41ad-9f58-2784e48c1ffe.png"
+                    alt="Imagem de perfil de Kefilwe Lourenço"
+                    width="260"
+                    height="260"
+                >
             </figure>
 
-        </section>
-
-        <hr>
-
-        <!-- Seção Sobre o autor -->
-        <section id="about" class="section-container about-container">
-        </section>
-
-        <hr>
-
-        <!-- Seção Projetos do autor -->
-        <section id="projects" class="section-container projects-container">
-
-            <h2>Meus Projetos</h2>
-
-            <!-- Swiper Container -->
-            <div class="swiper projects-swiper">
-
-                <div class="swiper-wrapper">
-
-                </div>
-
-                <!-- Botões de navegação -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-
-                <!-- Paginação -->
-                <div class="swiper-pagination"></div>
-
-            </div>
-
-        </section>
-
-        <hr>
-
-        <!-- Seção Formulário de Contato e Redes Sociais -->
-        <section id="contact" class="section-container contact-container">
-
-            <!-- REDES SOCIAIS -->
-            <article class="contact-info">
-
-                <h2>Entre em Contato</h2>
+            <article class="about-content">
+                <p class="section-kicker">Sobre mim</p>
+                <h2 id="about-title">Tecnologia com organização, ensino e cuidado com pessoas</h2>
 
                 <p>
-                    Sinta-se à vontade para entrar em contato comigo pelas redes sociais
-                    ou pelo formulário abaixo.
+                    Sou Kefilwe Lourenço, desenvolvedor Full Stack JavaScript formado pela Generation Brasil e instrutor de tecnologia.
+                    Minha trajetória une tecnologia, educação e experiência humana. Desenvolvo aplicações web com foco em funcionalidade,
+                    acessibilidade, responsividade e boa experiência para o usuário.
+                </p>
+
+                <p>
+                    Gosto de transformar problemas em interfaces claras, componentes reutilizáveis e fluxos que fazem sentido para quem usa.
+                    Também levo minha experiência como instrutor para o desenvolvimento: comunicação, escuta ativa e visão de produto fazem parte do meu jeito de construir.
+                </p>
+
+                <div class="about-buttons-data">
+                    <div class="buttons-container">
+                        <a href="https://github.com/KefilweLourenco" target="_blank" rel="noopener noreferrer" class="botao">Ver GitHub</a>
+                        <a href="./assets/docs/Curriculo_Kefilwe_Lourenco_dev_fullstack.pdf" target="_blank" class="botao-outline">Currículo</a>
+                    </div>
+
+                    <div class="data-container" aria-label="Dados públicos do GitHub">
+                        <div class="data-item">
+                            <span class="data-number" data-github-stat="followers">--</span>
+                            <span class="data-label">Seguidores</span>
+                        </div>
+
+                        <div class="data-item">
+                            <span class="data-number" data-github-stat="repos">--</span>
+                            <span class="data-label">Repositórios</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="featured" class="section-container featured-container" aria-labelledby="featured-title">
+            <div class="section-heading">
+                <p class="section-kicker">Projeto em Destaque</p>
+                <h2 id="featured-title">PeopleCore ERP</h2>
+                <p>
+                    Sistema ERP desenvolvido em equipe para gestão de pessoas, funcionários e departamentos.
+                </p>
+            </div>
+
+            <article class="featured-card">
+                <div class="featured-content">
+                    <h3>Atuação no projeto</h3>
+                    <ul class="check-list">
+                        <li>Product Owner</li>
+                        <li>Desenvolvimento da Home</li>
+                        <li>Construção de componentes</li>
+                        <li>Responsividade</li>
+                        <li>Apoio na organização visual</li>
+                        <li>Participação na apresentação do projeto</li>
+                    </ul>
+                </div>
+
+                <div class="featured-content">
+                    <h3>Tecnologias</h3>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Vite</span>
+                        <span class="tag">NestJS</span>
+                        <span class="tag">GraphQL</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+
+                    <div class="project-buttons featured-buttons">
+                        <a href="https://people-core-front.vercel.app/home" target="_blank" rel="noopener noreferrer" class="botao">Ver projeto</a>
+                        <a href="https://github.com/Grupo-03-Turma-JavaScript-14/people-core-front" target="_blank" rel="noopener noreferrer" class="botao-outline">GitHub</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="projects" class="section-container projects-container" aria-labelledby="projects-title">
+            <div class="section-heading">
+                <p class="section-kicker">Projetos</p>
+                <h2 id="projects-title">Projetos selecionados</h2>
+                <p>
+                    Uma seleção de aplicações que mostram minha evolução com front-end, back-end, responsividade e organização de produto.
+                </p>
+            </div>
+
+            <div class="swiper projects-swiper">
+                <div class="swiper-wrapper" id="projects-list"></div>
+                <div class="swiper-button-next" aria-label="Próximo projeto"></div>
+                <div class="swiper-button-prev" aria-label="Projeto anterior"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="technologies" class="section-container technologies-container" aria-labelledby="technologies-title">
+            <div class="section-heading">
+                <p class="section-kicker">Tecnologias</p>
+                <h2 id="technologies-title">Stack e ferramentas</h2>
+            </div>
+
+            <div class="tech-grid">
+                <article class="info-card">
+                    <h3>Front-end</h3>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <h3>Back-end</h3>
+                    <div class="project-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">NestJS</span>
+                        <span class="tag">GraphQL</span>
+                        <span class="tag">APIs REST</span>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <h3>Ferramentas</h3>
+                    <div class="project-tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Canva</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="journey" class="section-container journey-container" aria-labelledby="journey-title">
+            <div class="section-heading">
+                <p class="section-kicker">Minha trajetória</p>
+                <h2 id="journey-title">Caminho profissional</h2>
+            </div>
+
+            <ol class="timeline">
+                <li>Instrutor de Tecnologia</li>
+                <li>Formação Full Stack JavaScript pela Generation Brasil</li>
+                <li>Desenvolvimento do PeopleCore ERP</li>
+                <li>Estudante de Psicologia</li>
+                <li>Busca por oportunidades como Desenvolvedor Full Stack</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="process" class="section-container process-container" aria-labelledby="process-title">
+            <div class="section-heading">
+                <p class="section-kicker">Como eu desenvolvo</p>
+                <h2 id="process-title">Do problema à melhoria contínua</h2>
+            </div>
+
+            <div class="process-grid">
+                <article class="info-card">
+                    <h3>Entendimento do problema</h3>
+                    <p>Busco compreender o objetivo, as pessoas usuárias e o impacto esperado antes de começar a construir.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Organização da estrutura</h3>
+                    <p>Planejo páginas, componentes e responsabilidades para manter o projeto claro e fácil de evoluir.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Componentização</h3>
+                    <p>Crio blocos reutilizáveis para reduzir repetição e melhorar consistência visual e técnica.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Responsividade</h3>
+                    <p>Valido a experiência em diferentes telas para que o conteúdo continue legível e funcional.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Acessibilidade</h3>
+                    <p>Cuido de semântica, textos alternativos, contraste e navegação clara sempre que possível.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Testes manuais e refatoração</h3>
+                    <p>Reviso fluxos, corrijo detalhes e refatoro pontos que podem ficar mais simples ou robustos.</p>
+                </article>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="contact" class="section-container contact-container" aria-labelledby="contact-title">
+            <article class="contact-info">
+                <p class="section-kicker">Contato</p>
+                <h2 id="contact-title">Vamos conversar?</h2>
+
+                <p>
+                    Estou em busca de oportunidades como Desenvolvedor Full Stack JavaScript e também aberto a conexões sobre tecnologia, educação e projetos acessíveis.
                 </p>
 
                 <div class="social-container">
-
-                    <a 
-                        href="https://www.linkedin.com/in/kefilwe-lourenco/" 
-                        target="_blank" 
-                        class="social-icon" 
-                        aria-label="LinkedIn"
+                    <a
+                        href="https://www.linkedin.com/in/kefilwe-lourenco/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon"
+                        aria-label="Acessar LinkedIn de Kefilwe Lourenço"
                     >
-                        <img 
-                            src="./assets/icons/social/linkedin.svg" 
-                            alt="Link para o LinkedIn"
-                            width="40"
-                        >
+                        <img src="./assets/icons/social/linkedin.svg" alt="" width="40">
                     </a>
 
-                    <a 
-                        href="https://github.com/KefilweLourenco" 
-                        target="_blank" 
-                        class="social-icon" 
-                        aria-label="GitHub"
+                    <a
+                        href="https://github.com/KefilweLourenco"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon"
+                        aria-label="Acessar GitHub de Kefilwe Lourenço"
                     >
-                        <img 
-                            src="./assets/icons/social/github.svg" 
-                            alt="Link para o GitHub"
-                            width="40"
-                        >
+                        <img src="./assets/icons/social/github.svg" alt="" width="40">
                     </a>
 
-                    <a 
-                        href="https://www.instagram.com/kaefebr/" 
-                        target="_blank" 
-                        class="social-icon" 
-                        aria-label="Instagram"
+                    <a
+                        href="https://www.instagram.com/kaefebr/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon"
+                        aria-label="Acessar Instagram de Kefilwe Lourenço"
                     >
-                        <img 
-                            src="./assets/icons/social/instagram.svg" 
-                            alt="Link para o Instagram"
-                            width="40"
-                        >
+                        <img src="./assets/icons/social/instagram.svg" alt="" width="40">
                     </a>
-
                 </div>
-
             </article>
 
-            <!-- FORMULÁRIO -->
-            <form id="formulario" action="https://formsubmit.co/ec6c50bfeef9cd37c52fc1321c85fd99" method="POST">
-
-                <input type="hidden" name="_next" value="https://kefilwelourenco.github.io/Meu-Portifolio/success.html">
+            <form id="formulario" action="https://formsubmit.co/ec6c50bfeef9cd37c52fc1321c85fd99" method="POST" novalidate>
+                <input type="hidden" name="_next" value="https://kefilwelourenco.github.io/Meu-Portifolio/sucess.html">
                 <input type="hidden" name="_captcha" value="false">
 
                 <label for="nome">Nome</label>
-                <input 
-                    id="nome" 
-                    name="name" 
-                    type="text" 
-                    placeholder="Digite o seu nome completo"
-                >
-                <span id="erro-nome"></span>
-
-                <br><br>
+                <input id="nome" name="name" type="text" placeholder="Digite o seu nome completo" autocomplete="name">
+                <span id="erro-nome" aria-live="polite"></span>
 
                 <label for="email">E-mail</label>
-                <input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    placeholder="Digite o seu e-mail"
-                >
-                <span id="erro-email"></span>
-
-                <br><br>
+                <input id="email" name="email" type="email" placeholder="Digite o seu e-mail" autocomplete="email">
+                <span id="erro-email" aria-live="polite"></span>
 
                 <label for="assunto">Assunto</label>
-                <input 
-                    id="assunto" 
-                    name="subject" 
-                    type="text" 
-                    placeholder="Digite o assunto da mensagem"
-                >
-                <span id="erro-assunto"></span>
-
-                <br><br>
+                <input id="assunto" name="subject" type="text" placeholder="Digite o assunto da mensagem">
+                <span id="erro-assunto" aria-live="polite"></span>
 
                 <label for="mensagem">Mensagem</label>
-                <textarea 
-                    id="mensagem" 
-                    name="message" 
-                    placeholder="Digite sua mensagem"
-                    rows="5"
-                    cols="40"
-                ></textarea>
-                <span id="erro-mensagem"></span>
-
-                <br><br>
+                <textarea id="mensagem" name="message" placeholder="Digite sua mensagem" rows="5"></textarea>
+                <span id="erro-mensagem" aria-live="polite"></span>
 
                 <button class="botao" type="submit">Enviar Mensagem</button>
-
             </form>
-
         </section>
-
     </main>
-      
-    <!-- Rodapé da Página -->
+
     <footer>
         <p>Desenvolvido por Kefilwe Lourenço - 2026</p>
     </footer>
 
-    <!-- SWIPER JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Script JavaScript -->
     <script src="./assets/js/script.js"></script>
-
 </body>
 </html>
