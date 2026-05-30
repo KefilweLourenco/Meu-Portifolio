@@ -3,16 +3,16 @@ const followersStat = document.querySelector('[data-github-stat="followers"]');
 const reposStat = document.querySelector('[data-github-stat="repos"]');
 const projectsList = document.querySelector('#projects-list');
 const formulario = document.querySelector('#formulario');
-const themeToggle = document.querySelector('#theme-toggle');
+const themeOptions = document.querySelectorAll('[data-theme-option]');
 
 const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 const projects = [
     {
-        name: 'PeopleCore ERP',
-        description: 'ERP para gestão de pessoas, funcionários e departamentos. Atuei no desenvolvimento, na Home, em componentes, responsividade e QA para apresentação.',
+        name: 'PeopleCore',
+        description: 'ERP para gestão de pessoas, funcionários e departamentos. Atuei como desenvolvedor Full Stack, QA, na Home, em componentes e responsividade.',
         technologies: ['React', 'TypeScript', 'Vite', 'NestJS', 'MySQL'],
-        deploy: 'https://people-core-front.vercel.app/login',
+        deploy: 'https://people-core-front.vercel.app/',
         github: 'https://github.com/Grupo-03-Turma-JavaScript-14/people-core-front',
         icon: 'typescript',
     },
@@ -20,7 +20,7 @@ const projects = [
         name: 'Save Drive',
         description: 'Aplicação importante da minha trajetória, com foco em experiência do usuário, organização visual e construção de uma interface funcional.',
         technologies: ['React', 'TypeScript', 'Vite', 'CSS'],
-        deploy: 'https://save-drive-front.vercel.app/home',
+        deploy: 'https://save-drive-front.vercel.app/',
         github: '',
         icon: 'typescript',
     },
@@ -28,7 +28,7 @@ const projects = [
         name: 'App Meteorologia',
         description: 'Aplicativo de meteorologia com busca por cidade, geolocalização do navegador e consumo da API Open-Meteo.',
         technologies: ['React', 'JavaScript', 'API', 'CSS'],
-        deploy: '',
+        deploy: 'https://kefilwelourenco.github.io/app-meteorologia/',
         github: 'https://github.com/KefilweLourenco/app-meteorologia',
         icon: 'javascript',
     },
@@ -41,11 +41,27 @@ const projects = [
         icon: 'typescript',
     },
     {
+        name: 'API Gestão de Psicólogos',
+        description: 'API REST para gestão de psicólogos, pacientes e agenda. Projeto importante que pretendo evoluir com novas regras e melhorias.',
+        technologies: ['NestJS', 'TypeScript', 'MySQL', 'TypeORM', 'API REST'],
+        deploy: '',
+        github: 'https://github.com/KefilweLourenco/api-gestao-psicologos',
+        icon: 'typescript',
+    },
+    {
         name: 'Blog Pessoal',
         description: 'Aplicação full stack de blog pessoal com front-end em React e API REST em NestJS, criada durante a formação Full Stack JavaScript.',
         technologies: ['React', 'TypeScript', 'Vite', 'NestJS', 'MySQL'],
         deploy: 'https://blogpessoal-frontend-hazel.vercel.app',
         github: 'https://github.com/KefilweLourenco/blogpessoal_frontend',
+        icon: 'typescript',
+    },
+    {
+        name: 'Windows 3.1 Birthday Card',
+        description: 'Cartão de aniversário interativo inspirado no Windows NT 3.1, criado como experiência visual e afetiva para minha irmã.',
+        technologies: ['TypeScript', 'React', 'CSS', 'Vite'],
+        deploy: '',
+        github: 'https://github.com/KefilweLourenco/Windows-3.1-Birthday-Card-',
         icon: 'typescript',
     },
 ];
@@ -58,7 +74,7 @@ function renderProjectButtons(project) {
     const buttons = [];
 
     if (project.deploy) {
-        buttons.push(`<a href="${project.deploy}" target="_blank" rel="noopener noreferrer" class="botao-outline botao-sm">Deploy</a>`);
+        buttons.push(`<a href="${project.deploy}" target="_blank" rel="noopener noreferrer" class="botao-outline botao-sm">Site</a>`);
     }
 
     if (project.github) {
@@ -254,37 +270,40 @@ function validateForm(event) {
     }
 }
 
-function updateThemeButton(isLightTheme) {
-    if (!themeToggle) {
-        return;
-    }
-
-    themeToggle.setAttribute('aria-pressed', String(isLightTheme));
-    themeToggle.querySelector('span').textContent = isLightTheme ? '☀' : '☾';
-}
-
-function applySavedTheme() {
-    const savedTheme = localStorage.getItem('portfolio-theme');
+function getSystemTheme() {
     const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    const shouldUseLightTheme = savedTheme ? savedTheme === 'light' : prefersLight;
 
-    document.body.classList.toggle('light-theme', shouldUseLightTheme);
-    updateThemeButton(shouldUseLightTheme);
+    return prefersLight ? 'light' : 'dark';
 }
 
-function toggleTheme() {
-    const isLightTheme = document.body.classList.toggle('light-theme');
-
-    localStorage.setItem('portfolio-theme', isLightTheme ? 'light' : 'dark');
-    updateThemeButton(isLightTheme);
+function updateThemeOptions(selectedTheme) {
+    themeOptions.forEach(option => {
+        option.setAttribute('aria-pressed', String(option.dataset.themeOption === selectedTheme));
+    });
 }
 
-applySavedTheme();
+function applyTheme(theme) {
+    const selectedTheme = theme || localStorage.getItem('portfolio-theme') || 'auto';
+    const resolvedTheme = selectedTheme === 'auto' ? getSystemTheme() : selectedTheme;
+
+    document.body.classList.toggle('light-theme', resolvedTheme === 'light');
+    document.body.dataset.theme = selectedTheme;
+    localStorage.setItem('portfolio-theme', selectedTheme);
+    updateThemeOptions(selectedTheme);
+}
+
+applyTheme();
 renderProjects();
 getAboutGitHub();
 iniciarSwiper();
 formulario.addEventListener('submit', validateForm);
 
-if (themeToggle) {
-    themeToggle.addEventListener('click', toggleTheme);
-}
+themeOptions.forEach(option => {
+    option.addEventListener('click', () => applyTheme(option.dataset.themeOption));
+});
+
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+    if (document.body.dataset.theme === 'auto') {
+        applyTheme('auto');
+    }
+});

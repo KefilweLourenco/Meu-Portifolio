@@ -8,11 +8,10 @@ O projeto foi construído com HTML, CSS e JavaScript, mantendo a identidade visu
 
 - Hero com apresentação profissional, links para GitHub, LinkedIn, currículo e contato.
 - Sobre mim com trajetória, formação e atuação como instrutor de tecnologia.
-- Projeto em Destaque para o PeopleCore ERP.
+- Projeto em Destaque para o PeopleCore.
 - Projetos selecionados em carrossel com cards responsivos.
 - Tecnologias organizadas por front-end, back-end e ferramentas.
 - Minha trajetória em timeline simples.
-- Como eu desenvolvo com processo de trabalho.
 - Alternância entre tema claro e escuro.
 - Contato com redes sociais e formulário.
 

@@ -41,9 +41,11 @@
                 </ul>
             </nav>
 
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar entre tema claro e escuro" aria-pressed="false">
-                <span aria-hidden="true">☾</span>
-            </button>
+            <div class="theme-control" role="group" aria-label="Preferência de tema">
+                <button class="theme-option" type="button" data-theme-option="auto" aria-pressed="true">Auto</button>
+                <button class="theme-option" type="button" data-theme-option="light" aria-pressed="false">Claro</button>
+                <button class="theme-option" type="button" data-theme-option="dark" aria-pressed="false">Escuro</button>
+            </div>
         </div>
     </header>
 
@@ -104,12 +106,7 @@
                     Também levo minha experiência como instrutor para o desenvolvimento: comunicação, escuta ativa e visão de produto fazem parte do meu jeito de construir.
                 </p>
 
-                <div class="about-buttons-data">
-                    <div class="buttons-container">
-                        <a href="https://github.com/KefilweLourenco" target="_blank" rel="noopener noreferrer" class="botao">Ver GitHub</a>
-                        <a href="./assets/docs/Curriculo_Kefilwe_Lourenco_dev_fullstack.pdf" target="_blank" class="botao-outline">Currículo</a>
-                    </div>
-
+                <div class="about-buttons-data about-data-only">
                     <div class="data-container" aria-label="Dados públicos do GitHub">
                         <div class="data-item">
                             <span class="data-number" data-github-stat="followers">--</span>
@@ -130,7 +127,7 @@
         <section id="featured" class="section-container featured-container" aria-labelledby="featured-title">
             <div class="section-heading">
                 <p class="section-kicker">Projeto em Destaque</p>
-                <h2 id="featured-title">PeopleCore ERP</h2>
+                <h2 id="featured-title">PeopleCore</h2>
                 <p>
                     Sistema ERP desenvolvido em equipe para gestão de pessoas, funcionários e departamentos. Projeto em refinamento para apresentação no Game Day.
                 </p>
@@ -140,13 +137,13 @@
                 <div class="featured-content">
                     <h3>Atuação no projeto</h3>
                     <ul class="check-list">
-                        <li>Desenvolvimento como integrante do time</li>
-                        <li>Atuação como QA na preparação da apresentação</li>
+                        <li>Desenvolvedor Full Stack</li>
+                        <li>Atuação como QA</li>
                         <li>Desenvolvimento da Home</li>
                         <li>Construção de componentes</li>
                         <li>Responsividade</li>
                         <li>Apoio na organização visual</li>
-                        <li>Participação na apresentação e refinamento do projeto</li>
+                        <li>Participação no refinamento do projeto</li>
                     </ul>
                 </div>
 
@@ -162,7 +159,7 @@
                     </div>
 
                     <div class="project-buttons featured-buttons">
-                        <a href="https://people-core-front.vercel.app/login" target="_blank" rel="noopener noreferrer" class="botao">Ver projeto</a>
+                        <a href="https://people-core-front.vercel.app/" target="_blank" rel="noopener noreferrer" class="botao">PeopleCore</a>
                         <a href="https://github.com/Grupo-03-Turma-JavaScript-14/people-core-front" target="_blank" rel="noopener noreferrer" class="botao-outline">GitHub</a>
                     </div>
                 </div>
@@ -215,6 +212,7 @@
                     <h3>Back-end</h3>
                     <div class="project-tags">
                         <span class="tag">Node.js</span>
+                        <span class="tag">Next.js</span>
                         <span class="tag">NestJS</span>
                         <span class="tag">MySQL</span>
                         <span class="tag">SQL</span>
@@ -230,6 +228,7 @@
                         <span class="tag">VS Code</span>
                         <span class="tag">Figma</span>
                         <span class="tag">Vercel</span>
+                        <span class="tag">Render</span>
                     </div>
                 </article>
             </div>
@@ -250,61 +249,6 @@
             </ol>
         </section>
 
-        <hr>
-
-        <section id="process" class="section-container process-container" aria-labelledby="process-title">
-            <div class="section-heading">
-                <p class="section-kicker">Como eu desenvolvo</p>
-                <h2 id="process-title">Do problema à melhoria contínua</h2>
-            </div>
-
-            <ol class="process-flow">
-                <li>
-                    <article class="info-card">
-                        <h3>Entendimento do problema</h3>
-                        <p>Busco compreender o objetivo, as pessoas usuárias e o impacto esperado antes de começar a construir.</p>
-                    </article>
-                </li>
-
-                <li>
-                    <article class="info-card">
-                        <h3>Organização da estrutura</h3>
-                        <p>Planejo páginas, componentes e responsabilidades para manter o projeto claro e fácil de evoluir.</p>
-                    </article>
-                </li>
-
-                <li>
-                    <article class="info-card">
-                        <h3>Componentização</h3>
-                        <p>Crio blocos reutilizáveis para reduzir repetição e melhorar consistência visual e técnica.</p>
-                    </article>
-                </li>
-
-                <li>
-                    <article class="info-card">
-                        <h3>Responsividade</h3>
-                        <p>Valido a experiência em diferentes telas para que o conteúdo continue legível e funcional.</p>
-                    </article>
-                </li>
-
-                <li>
-                    <article class="info-card accessibility-card">
-                        <h3>Acessibilidade</h3>
-                        <p>Este ponto é essencial para mim: cuido de semântica, contraste, textos alternativos e navegação clara para aproximar tecnologia de pessoas reais.</p>
-                    </article>
-                </li>
-
-                <li>
-                    <article class="info-card">
-                        <h3>Testes manuais e refatoração</h3>
-                        <p>Reviso fluxos, corrijo detalhes e refatoro pontos que podem ficar mais simples ou robustos.</p>
-                    </article>
-                </li>
-            </ol>
-        </section>
-
-        <hr>
-
         <section id="contact" class="section-container contact-container" aria-labelledby="contact-title">
             <article class="contact-info">
                 <p class="section-kicker">Contato</p>
@@ -313,6 +257,12 @@
                 <p>
                     Estou em busca de oportunidades como Desenvolvedor Full Stack JavaScript e também aberto a conexões sobre tecnologia, educação e projetos acessíveis.
                 </p>
+
+                <div class="email-fallback">
+                    <span>Prefere e-mail direto?</span>
+                    <a href="mailto:kefilwebr@hotmail.com" class="email-link">kefilwebr@hotmail.com</a>
+                    <a href="mailto:kefilwebr@hotmail.com?subject=Contato pelo portfólio" class="botao-outline botao-sm">Enviar e-mail</a>
+                </div>
 
                 <div class="social-container">
                     <a

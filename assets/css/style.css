@@ -51,10 +51,10 @@
     /* Tamanho da Fonte */
     --text-sm: 0.75rem;
     --text-base: 1rem;
-    --text-lg: 1.25rem;
-    --text-xl: 1.5rem;
-    --text-2xl: 2rem;
-    --text-3xl: 2.5rem;
+    --text-lg: 1.12rem;
+    --text-xl: 1.35rem;
+    --text-2xl: 1.75rem;
+    --text-3xl: 2.2rem;
 
     /* Border Radius */
     --radius-sm: 0.25rem;
@@ -100,6 +100,30 @@ body.light-theme form textarea {
     color: var(--black);
 }
 
+body.light-theme .theme-control {
+    background-color: rgba(255, 255, 255, 0.65);
+}
+
+body.light-theme .theme-option {
+    color: var(--purple-700);
+}
+
+body.light-theme .theme-option[aria-pressed="true"] {
+    color: var(--purple-900);
+}
+
+body.light-theme .tag {
+    background-color: #FFF7E4;
+    border-color: #9B6B00;
+    color: #5F2B18;
+}
+
+body.light-theme .featured-card {
+    background:
+        linear-gradient(135deg, rgba(122, 31, 43, 0.16), rgba(255, 255, 255, 0.92)),
+        var(--surface);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -140,11 +164,14 @@ main {
 
 .botao,
 .botao-outline {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    border: 0.15rem solid transparent;
-    border-radius: var(--radius-md);
-    font-size: var(--text-base);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.85rem;
+    padding: 0.65rem 1.35rem;
+    border: 0.1rem solid transparent;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
@@ -161,7 +188,7 @@ main {
     border-color: var(--gold);
     background-color: var(--purple-700);
     box-shadow: var(--shadow-md);
-    transform: translateY(-0.25rem);
+    transform: translateY(-0.12rem);
 }
 
 .botao-outline {
@@ -174,12 +201,13 @@ main {
     border-color: var(--gold);
     background-color: var(--gold);
     color: #14080A;
-    transform: translateY(-0.25rem);
+    transform: translateY(-0.12rem);
 }
 
 .botao-sm {
-    padding: 0.55rem 1rem;
-    font-size: 0.9rem;
+    min-height: 2.4rem;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
 }
 
 header {
@@ -229,30 +257,38 @@ header a:hover {
     padding: var(--spacing-xs);
 }
 
-.theme-toggle {
-    display: inline-flex;
+.theme-control {
+    display: flex;
     flex: 0 0 auto;
     align-items: center;
-    justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    border: 0.1rem solid rgba(212, 160, 23, 0.55);
-    border-radius: var(--radius-full);
-    background-color: rgba(20, 8, 10, 0.35);
-    color: var(--gold);
+    gap: 0.15rem;
+    padding: 0.2rem;
+    border: 0.05rem solid rgba(212, 160, 23, 0.45);
+    border-radius: var(--radius-sm);
+    background-color: rgba(20, 8, 10, 0.45);
+}
+
+.theme-option {
+    min-width: 3.25rem;
+    padding: 0.4rem 0.55rem;
+    border: 0;
+    border-radius: 0.2rem;
+    background-color: transparent;
+    color: #F5F5F5;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
     cursor: pointer;
     transition: var(--transition-default);
 }
 
-.theme-toggle span {
-    font-size: var(--text-lg);
-    line-height: 1;
-}
-
-.theme-toggle:hover {
+.theme-option[aria-pressed="true"] {
     background-color: var(--gold);
     color: var(--purple-900);
-    transform: translateY(-0.15rem);
+}
+
+.theme-option:hover {
+    color: var(--gold);
 }
 
 .hero-container {
@@ -313,8 +349,7 @@ header a:hover {
 .contact-info h2,
 .featured-container h2,
 .technologies-container h2,
-.journey-container h2,
-.process-container h2 {
+.journey-container h2 {
     margin-bottom: var(--spacing-md);
     font-size: var(--text-3xl);
     font-weight: 700;
@@ -336,14 +371,45 @@ header a:hover {
     flex: 1;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.hero-image::before,
+.hero-image::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-image::before {
+    width: min(100%, 27rem);
+    aspect-ratio: 1;
+    border: 0.05rem solid rgba(212, 160, 23, 0.3);
+    background-image:
+        linear-gradient(rgba(212, 160, 23, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 160, 23, 0.08) 1px, transparent 1px);
+    background-size: 2.4rem 2.4rem;
+    transform: rotate(2deg);
+}
+
+.hero-image::after {
+    right: 9%;
+    bottom: 8%;
+    width: 6rem;
+    height: 0.12rem;
+    background-color: var(--gold);
+    box-shadow: -2.5rem -18rem 0 rgba(212, 160, 23, 0.5);
 }
 
 .hero-image img {
+    position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 380px;
     height: auto;
-    border-radius: var(--radius-xl);
-    border: 0.1rem solid rgba(212, 160, 23, 0.24);
+    border-radius: var(--radius-md);
+    border: 0.1rem solid rgba(212, 160, 23, 0.45);
     box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
     object-fit: contain;
     transition: var(--transition-default);
@@ -351,7 +417,7 @@ header a:hover {
 
 .hero-image img:hover {
     border-color: rgba(212, 160, 23, 0.5);
-    transform: translateY(-0.35rem) scale(1.01);
+    transform: translateY(-0.2rem);
 }
 
 @keyframes float {
@@ -446,8 +512,7 @@ header a:hover {
 
 .featured-container,
 .technologies-container,
-.journey-container,
-.process-container {
+.journey-container {
     margin: var(--spacing-2xl) auto;
 }
 
@@ -596,60 +661,10 @@ header a:hover {
     margin-top: var(--spacing-sm);
 }
 
-.tech-grid,
-.process-grid {
+.tech-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--spacing-md);
-}
-
-.process-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.process-flow {
-    display: grid;
-    gap: var(--spacing-sm);
-    max-width: 50rem;
-    margin: 0 auto;
-    list-style: none;
-    counter-reset: process;
-}
-
-.process-flow li {
-    position: relative;
-}
-
-.process-flow li:not(:last-child)::after {
-    content: "";
-    display: block;
-    width: 0.1rem;
-    height: var(--spacing-sm);
-    margin: 0 auto;
-    background-color: rgba(212, 160, 23, 0.4);
-}
-
-.process-flow .info-card {
-    position: relative;
-    padding-left: 4.75rem;
-}
-
-.process-flow .info-card::before {
-    counter-increment: process;
-    content: counter(process, decimal-leading-zero);
-    position: absolute;
-    top: var(--spacing-lg);
-    left: var(--spacing-lg);
-    font-size: var(--text-lg);
-    font-weight: 700;
-    color: var(--gold);
-}
-
-.accessibility-card {
-    border-color: rgba(212, 160, 23, 0.55);
-    background:
-        linear-gradient(135deg, rgba(212, 160, 23, 0.12), rgba(122, 31, 43, 0.14)),
-        var(--surface);
 }
 
 .info-card {
@@ -747,6 +762,36 @@ header a:hover {
 
 .contact-info p {
     margin-bottom: var(--spacing-lg);
+}
+
+.email-fallback {
+    display: grid;
+    gap: 0.65rem;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    border: 0.1rem solid rgba(212, 160, 23, 0.22);
+    border-radius: var(--radius-sm);
+    background-color: var(--surface);
+}
+
+.email-fallback span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--purple-100);
+}
+
+.email-link {
+    color: var(--gold);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.email-link:hover {
+    color: var(--purple-100);
+}
+
+body.light-theme .email-fallback span {
+    color: var(--purple-600);
 }
 
 .social-container {
@@ -941,7 +986,7 @@ footer {
 
     .hero-container .botao,
     .hero-container .botao-outline {
-        padding: 0.75rem 1.5rem;
+        padding: 0.65rem 1rem;
         font-size: 0.95rem;
         white-space: nowrap;
     }
@@ -993,14 +1038,12 @@ footer {
 
     .featured-container,
     .technologies-container,
-    .journey-container,
-    .process-container {
+    .journey-container {
         margin: var(--spacing-lg) auto;
     }
 
     .featured-card,
-    .tech-grid,
-    .process-grid {
+    .tech-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1085,6 +1128,16 @@ footer {
     .menu-content {
         justify-content: space-between;
     }
+
+    .theme-control {
+        gap: 0.1rem;
+    }
+
+    .theme-option {
+        min-width: auto;
+        padding: 0.35rem 0.45rem;
+        font-size: 0.7rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1151,7 +1204,7 @@ footer {
 
     .hero-container .botao,
     .hero-container .botao-outline {
-        padding: 0.75rem 1rem;
+        padding: 0.65rem 1rem;
         font-size: 0.95rem;
         white-space: nowrap;
     }
@@ -1208,16 +1261,6 @@ footer {
         width: 100%;
         min-height: 31rem;
         max-width: 20rem;
-    }
-
-    .process-flow .info-card {
-        padding-left: var(--spacing-md);
-        padding-top: 3.5rem;
-    }
-
-    .process-flow .info-card::before {
-        top: var(--spacing-md);
-        left: var(--spacing-md);
     }
 
     .project-image {
