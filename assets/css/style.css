@@ -925,12 +925,17 @@ footer {
     border-radius: var(--radius-full);
     background-color: var(--surface);
     border: 0.15rem solid var(--gold);
+    animation: none !important;
+    transform: none !important;
 }
 
 .success-icon img {
     width: 6rem;
     height: 6rem;
     filter: invert(68%) sepia(63%) saturate(663%) hue-rotate(3deg) brightness(93%) contrast(92%);
+    animation: none !important;
+    transform: none !important;
+    transition: none;
 }
 
 /* TABLET */
