@@ -40,6 +40,10 @@
                     <li><a href="#contact">Contato</a></li>
                 </ul>
             </nav>
+
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar entre tema claro e escuro" aria-pressed="false">
+                <span aria-hidden="true">☾</span>
+            </button>
         </div>
     </header>
 
@@ -66,7 +70,7 @@
                 <img
                     src="./assets/img/847e5943-4a92-41ad-9f58-2784e48c1ffe.png"
                     alt="Ilustração de Kefilwe Lourenço como desenvolvedor"
-                    class="hero-photo float-animation"
+                    class="hero-photo"
                     width="420"
                 >
             </figure>
@@ -128,7 +132,7 @@
                 <p class="section-kicker">Projeto em Destaque</p>
                 <h2 id="featured-title">PeopleCore ERP</h2>
                 <p>
-                    Sistema ERP desenvolvido em equipe para gestão de pessoas, funcionários e departamentos.
+                    Sistema ERP desenvolvido em equipe para gestão de pessoas, funcionários e departamentos. Projeto em refinamento para apresentação no Game Day.
                 </p>
             </div>
 
@@ -136,12 +140,13 @@
                 <div class="featured-content">
                     <h3>Atuação no projeto</h3>
                     <ul class="check-list">
-                        <li>Product Owner</li>
+                        <li>Desenvolvimento como integrante do time</li>
+                        <li>Atuação como QA na preparação da apresentação</li>
                         <li>Desenvolvimento da Home</li>
                         <li>Construção de componentes</li>
                         <li>Responsividade</li>
                         <li>Apoio na organização visual</li>
-                        <li>Participação na apresentação do projeto</li>
+                        <li>Participação na apresentação e refinamento do projeto</li>
                     </ul>
                 </div>
 
@@ -152,12 +157,12 @@
                         <span class="tag">TypeScript</span>
                         <span class="tag">Vite</span>
                         <span class="tag">NestJS</span>
-                        <span class="tag">GraphQL</span>
-                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">SQL</span>
                     </div>
 
                     <div class="project-buttons featured-buttons">
-                        <a href="https://people-core-front.vercel.app/home" target="_blank" rel="noopener noreferrer" class="botao">Ver projeto</a>
+                        <a href="https://people-core-front.vercel.app/login" target="_blank" rel="noopener noreferrer" class="botao">Ver projeto</a>
                         <a href="https://github.com/Grupo-03-Turma-JavaScript-14/people-core-front" target="_blank" rel="noopener noreferrer" class="botao-outline">GitHub</a>
                     </div>
                 </div>
@@ -198,8 +203,11 @@
                         <span class="tag">React</span>
                         <span class="tag">TypeScript</span>
                         <span class="tag">JavaScript</span>
+                        <span class="tag">Next.js</span>
                         <span class="tag">HTML</span>
                         <span class="tag">CSS</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">Vite</span>
                     </div>
                 </article>
 
@@ -208,7 +216,8 @@
                     <div class="project-tags">
                         <span class="tag">Node.js</span>
                         <span class="tag">NestJS</span>
-                        <span class="tag">GraphQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">SQL</span>
                         <span class="tag">APIs REST</span>
                     </div>
                 </article>
@@ -220,7 +229,7 @@
                         <span class="tag">GitHub</span>
                         <span class="tag">VS Code</span>
                         <span class="tag">Figma</span>
-                        <span class="tag">Canva</span>
+                        <span class="tag">Vercel</span>
                     </div>
                 </article>
             </div>
@@ -237,9 +246,7 @@
             <ol class="timeline">
                 <li>Instrutor de Tecnologia</li>
                 <li>Formação Full Stack JavaScript pela Generation Brasil</li>
-                <li>Desenvolvimento do PeopleCore ERP</li>
                 <li>Estudante de Psicologia</li>
-                <li>Busca por oportunidades como Desenvolvedor Full Stack</li>
             </ol>
         </section>
 
@@ -251,37 +258,49 @@
                 <h2 id="process-title">Do problema à melhoria contínua</h2>
             </div>
 
-            <div class="process-grid">
-                <article class="info-card">
-                    <h3>Entendimento do problema</h3>
-                    <p>Busco compreender o objetivo, as pessoas usuárias e o impacto esperado antes de começar a construir.</p>
-                </article>
+            <ol class="process-flow">
+                <li>
+                    <article class="info-card">
+                        <h3>Entendimento do problema</h3>
+                        <p>Busco compreender o objetivo, as pessoas usuárias e o impacto esperado antes de começar a construir.</p>
+                    </article>
+                </li>
 
-                <article class="info-card">
-                    <h3>Organização da estrutura</h3>
-                    <p>Planejo páginas, componentes e responsabilidades para manter o projeto claro e fácil de evoluir.</p>
-                </article>
+                <li>
+                    <article class="info-card">
+                        <h3>Organização da estrutura</h3>
+                        <p>Planejo páginas, componentes e responsabilidades para manter o projeto claro e fácil de evoluir.</p>
+                    </article>
+                </li>
 
-                <article class="info-card">
-                    <h3>Componentização</h3>
-                    <p>Crio blocos reutilizáveis para reduzir repetição e melhorar consistência visual e técnica.</p>
-                </article>
+                <li>
+                    <article class="info-card">
+                        <h3>Componentização</h3>
+                        <p>Crio blocos reutilizáveis para reduzir repetição e melhorar consistência visual e técnica.</p>
+                    </article>
+                </li>
 
-                <article class="info-card">
-                    <h3>Responsividade</h3>
-                    <p>Valido a experiência em diferentes telas para que o conteúdo continue legível e funcional.</p>
-                </article>
+                <li>
+                    <article class="info-card">
+                        <h3>Responsividade</h3>
+                        <p>Valido a experiência em diferentes telas para que o conteúdo continue legível e funcional.</p>
+                    </article>
+                </li>
 
-                <article class="info-card">
-                    <h3>Acessibilidade</h3>
-                    <p>Cuido de semântica, textos alternativos, contraste e navegação clara sempre que possível.</p>
-                </article>
+                <li>
+                    <article class="info-card accessibility-card">
+                        <h3>Acessibilidade</h3>
+                        <p>Este ponto é essencial para mim: cuido de semântica, contraste, textos alternativos e navegação clara para aproximar tecnologia de pessoas reais.</p>
+                    </article>
+                </li>
 
-                <article class="info-card">
-                    <h3>Testes manuais e refatoração</h3>
-                    <p>Reviso fluxos, corrijo detalhes e refatoro pontos que podem ficar mais simples ou robustos.</p>
-                </article>
-            </div>
+                <li>
+                    <article class="info-card">
+                        <h3>Testes manuais e refatoração</h3>
+                        <p>Reviso fluxos, corrijo detalhes e refatoro pontos que podem ficar mais simples ou robustos.</p>
+                    </article>
+                </li>
+            </ol>
         </section>
 
         <hr>

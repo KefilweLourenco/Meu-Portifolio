@@ -67,6 +67,39 @@
     --transition-default: all 0.3s ease;
 }
 
+body.light-theme {
+    --gray-200: #E9E3DC;
+    --gray-400: #4A3F3C;
+    --black: #181111;
+    --white: #FBF7F0;
+    --surface: #FFFFFF;
+    --surface-light: #F4ECE2;
+    --shadow-sm: 0 0.25rem 0.75rem rgba(74, 18, 28, 0.12);
+    --shadow-md: 0 0.35rem 1rem rgba(184, 116, 42, 0.18);
+    --shadow-lg: 0 0.75rem 1.75rem rgba(74, 18, 28, 0.18);
+}
+
+body.light-theme .hero-content h1,
+body.light-theme .project-content h3,
+body.light-theme .featured-content h3,
+body.light-theme .info-card h3,
+body.light-theme form label {
+    color: var(--black);
+}
+
+body.light-theme .section-kicker {
+    color: var(--purple-500);
+}
+
+body.light-theme .botao {
+    color: #F5F5F5;
+}
+
+body.light-theme form input,
+body.light-theme form textarea {
+    color: var(--black);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -179,6 +212,7 @@ header a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-md);
     max-width: 70rem;
     height: 100%;
     margin: 0 auto;
@@ -193,6 +227,32 @@ header a:hover {
 
 .menu-list a {
     padding: var(--spacing-xs);
+}
+
+.theme-toggle {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 0.1rem solid rgba(212, 160, 23, 0.55);
+    border-radius: var(--radius-full);
+    background-color: rgba(20, 8, 10, 0.35);
+    color: var(--gold);
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.theme-toggle span {
+    font-size: var(--text-lg);
+    line-height: 1;
+}
+
+.theme-toggle:hover {
+    background-color: var(--gold);
+    color: var(--purple-900);
+    transform: translateY(-0.15rem);
 }
 
 .hero-container {
@@ -283,7 +343,15 @@ header a:hover {
     max-width: 380px;
     height: auto;
     border-radius: var(--radius-xl);
+    border: 0.1rem solid rgba(212, 160, 23, 0.24);
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
     object-fit: contain;
+    transition: var(--transition-default);
+}
+
+.hero-image img:hover {
+    border-color: rgba(212, 160, 23, 0.5);
+    transform: translateY(-0.35rem) scale(1.01);
 }
 
 @keyframes float {
@@ -539,8 +607,53 @@ header a:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.process-flow {
+    display: grid;
+    gap: var(--spacing-sm);
+    max-width: 50rem;
+    margin: 0 auto;
+    list-style: none;
+    counter-reset: process;
+}
+
+.process-flow li {
+    position: relative;
+}
+
+.process-flow li:not(:last-child)::after {
+    content: "";
+    display: block;
+    width: 0.1rem;
+    height: var(--spacing-sm);
+    margin: 0 auto;
+    background-color: rgba(212, 160, 23, 0.4);
+}
+
+.process-flow .info-card {
+    position: relative;
+    padding-left: 4.75rem;
+}
+
+.process-flow .info-card::before {
+    counter-increment: process;
+    content: counter(process, decimal-leading-zero);
+    position: absolute;
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.accessibility-card {
+    border-color: rgba(212, 160, 23, 0.55);
+    background:
+        linear-gradient(135deg, rgba(212, 160, 23, 0.12), rgba(122, 31, 43, 0.14)),
+        var(--surface);
+}
+
 .info-card {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     border: 0.1rem solid rgba(212, 160, 23, 0.2);
     border-radius: var(--radius-md);
     background-color: var(--surface);
@@ -822,6 +935,10 @@ footer {
         width: 100%;
     }
 
+    .menu-list {
+        gap: var(--spacing-sm);
+    }
+
     .hero-container .botao,
     .hero-container .botao-outline {
         padding: 0.75rem 1.5rem;
@@ -964,6 +1081,10 @@ footer {
     .menu-list {
         display: none;
     }
+
+    .menu-content {
+        justify-content: space-between;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1087,6 +1208,16 @@ footer {
         width: 100%;
         min-height: 31rem;
         max-width: 20rem;
+    }
+
+    .process-flow .info-card {
+        padding-left: var(--spacing-md);
+        padding-top: 3.5rem;
+    }
+
+    .process-flow .info-card::before {
+        top: var(--spacing-md);
+        left: var(--spacing-md);
     }
 
     .project-image {

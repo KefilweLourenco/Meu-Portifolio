@@ -3,16 +3,41 @@ const followersStat = document.querySelector('[data-github-stat="followers"]');
 const reposStat = document.querySelector('[data-github-stat="repos"]');
 const projectsList = document.querySelector('#projects-list');
 const formulario = document.querySelector('#formulario');
+const themeToggle = document.querySelector('#theme-toggle');
 
 const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 const projects = [
     {
         name: 'PeopleCore ERP',
-        description: 'Sistema ERP em equipe para gestão de pessoas, funcionários e departamentos, com atuação em produto, home, componentes e responsividade.',
-        technologies: ['React', 'TypeScript', 'Vite', 'NestJS', 'GraphQL', 'PostgreSQL'],
-        deploy: 'https://people-core-front.vercel.app/home',
+        description: 'ERP para gestão de pessoas, funcionários e departamentos. Atuei no desenvolvimento, na Home, em componentes, responsividade e QA para apresentação.',
+        technologies: ['React', 'TypeScript', 'Vite', 'NestJS', 'MySQL'],
+        deploy: 'https://people-core-front.vercel.app/login',
         github: 'https://github.com/Grupo-03-Turma-JavaScript-14/people-core-front',
+        icon: 'typescript',
+    },
+    {
+        name: 'Save Drive',
+        description: 'Aplicação importante da minha trajetória, com foco em experiência do usuário, organização visual e construção de uma interface funcional.',
+        technologies: ['React', 'TypeScript', 'Vite', 'CSS'],
+        deploy: 'https://save-drive-front.vercel.app/home',
+        github: '',
+        icon: 'typescript',
+    },
+    {
+        name: 'App Meteorologia',
+        description: 'Aplicativo de meteorologia com busca por cidade, geolocalização do navegador e consumo da API Open-Meteo.',
+        technologies: ['React', 'JavaScript', 'API', 'CSS'],
+        deploy: '',
+        github: 'https://github.com/KefilweLourenco/app-meteorologia',
+        icon: 'javascript',
+    },
+    {
+        name: 'RotaDelas',
+        description: 'Projeto em equipe voltado a necessidades reais, com atenção a usabilidade, impacto social e experiência humana. Roda localmente.',
+        technologies: ['React', 'TypeScript', 'Vite', 'CSS'],
+        deploy: '',
+        github: 'https://github.com/Grupo-03-Turma-JavaScript-14/rotadelas-front',
         icon: 'typescript',
     },
     {
@@ -22,30 +47,6 @@ const projects = [
         deploy: 'https://blogpessoal-frontend-hazel.vercel.app',
         github: 'https://github.com/KefilweLourenco/blogpessoal_frontend',
         icon: 'typescript',
-    },
-    {
-        name: 'Save Drive',
-        description: 'Projeto web com foco em organização, experiência de uso e construção de interface responsiva.',
-        technologies: ['JavaScript', 'HTML', 'CSS'],
-        deploy: '',
-        github: '',
-        icon: 'javascript',
-    },
-    {
-        name: 'RotaDelas',
-        description: 'Projeto pensado para resolver necessidades reais com tecnologia, usabilidade e atenção à experiência humana.',
-        technologies: ['JavaScript', 'HTML', 'CSS'],
-        deploy: '',
-        github: '',
-        icon: 'javascript',
-    },
-    {
-        name: 'App Meteorologia',
-        description: 'Aplicativo de meteorologia em React com busca por cidade, geolocalização do navegador e consumo da API Open-Meteo.',
-        technologies: ['React', 'JavaScript', 'API', 'CSS'],
-        deploy: '',
-        github: 'https://github.com/KefilweLourenco/app-meteorologia',
-        icon: 'javascript',
     },
 ];
 
@@ -253,7 +254,37 @@ function validateForm(event) {
     }
 }
 
+function updateThemeButton(isLightTheme) {
+    if (!themeToggle) {
+        return;
+    }
+
+    themeToggle.setAttribute('aria-pressed', String(isLightTheme));
+    themeToggle.querySelector('span').textContent = isLightTheme ? '☀' : '☾';
+}
+
+function applySavedTheme() {
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const shouldUseLightTheme = savedTheme ? savedTheme === 'light' : prefersLight;
+
+    document.body.classList.toggle('light-theme', shouldUseLightTheme);
+    updateThemeButton(shouldUseLightTheme);
+}
+
+function toggleTheme() {
+    const isLightTheme = document.body.classList.toggle('light-theme');
+
+    localStorage.setItem('portfolio-theme', isLightTheme ? 'light' : 'dark');
+    updateThemeButton(isLightTheme);
+}
+
+applySavedTheme();
 renderProjects();
 getAboutGitHub();
 iniciarSwiper();
 formulario.addEventListener('submit', validateForm);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+}

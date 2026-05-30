@@ -13,6 +13,7 @@ O projeto foi construído com HTML, CSS e JavaScript, mantendo a identidade visu
 - Tecnologias organizadas por front-end, back-end e ferramentas.
 - Minha trajetória em timeline simples.
 - Como eu desenvolvo com processo de trabalho.
+- Alternância entre tema claro e escuro.
 - Contato com redes sociais e formulário.
 
 ## Tecnologias
@@ -36,6 +37,7 @@ Para uma experiência melhor durante o desenvolvimento, use a extensão Live Ser
 
 ## Pontos para revisar
 
-- Confirmar se os links de deploy e GitHub de Save Drive e RotaDelas devem ser adicionados aos cards.
+- Confirmar se o Save Drive também tem repositório público para adicionar ao card.
+- Confirmar se o RotaDelas continuará apenas com GitHub, sem deploy público.
 - Confirmar se o arquivo `assets/docs/Curriculo_Kefilwe_Lourenco_dev_fullstack.pdf` é a versão final do currículo.
 - Atualizar imagens caso queira substituir a ilustração atual por foto profissional ou arte nova mantendo a identidade visual.
