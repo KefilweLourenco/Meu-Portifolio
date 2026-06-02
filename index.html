@@ -382,16 +382,17 @@ section{padding:88px 0}
 .pc-desc{font-size:var(--fs-xs);color:var(--ink2);line-height:1.65;margin-bottom:12px}
 .pc-tags{display:flex;flex-wrap:wrap;gap:5px}
 .tag{font-family:var(--mono);font-size:.63rem;padding:3px 7px;border-radius:5px;background:var(--bg3);border:1px solid var(--bh);color:var(--ink2);letter-spacing:.02em}
-.pc-visual{height:118px;margin-bottom:15px;padding:13px;border:1px solid var(--border);border-radius:7px;background:var(--bg2);overflow:hidden}
+.pc-visual{height:190px;margin-bottom:16px;padding:13px;border:1px solid var(--border);border-radius:7px;background:var(--bg2);overflow:hidden}
 .pc-visual.real{padding:0}
 .pc-project-img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.pc-video{display:block;width:100%;height:100%;object-fit:cover;background:#050505}
 .pv-label{font-family:var(--mono);font-size:.58rem;color:var(--green);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
 .pv-window{display:grid;grid-template-columns:30% 1fr;gap:9px;height:70px}
 .pv-side,.pv-body{border:1px solid var(--border);border-radius:5px;background:var(--card)}
 .pv-body{padding:8px}
 .pv-line{height:6px;background:var(--border);border-radius:2px;margin-bottom:7px}
 .pv-line.short{width:58%}
-.pc-case{display:grid;grid-template-columns:56px 1fr;gap:5px 8px;margin:14px 0}
+.pc-case{display:grid;grid-template-columns:74px minmax(0,1fr);gap:6px 10px;margin:14px 0}
 .pc-case dt{font-family:var(--mono);font-size:.58rem;color:var(--green);text-transform:uppercase;letter-spacing:.04em}
 .pc-case dd{font-size:.68rem;color:var(--ink2);line-height:1.55}
 
@@ -572,7 +573,7 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
         <h1 id="hero-title" class="h-title sr d1">
           Código com <em>empatia,</em><br/>interfaces que funcionam
         </h1>
-        <p class="h-role sr d2">Full Stack JavaScript Developer · React · TypeScript · NestJS</p>
+        <p class="h-role sr d2">Front-End · Full Stack JavaScript · React · TypeScript</p>
         <p class="h-desc sr d2">
           Olá, sou <strong>Kefilwe Lourenço</strong>. Desenvolvo soluções digitais acessíveis e escaláveis,
           e uso meus estudos em Psicologia para entender quem vai usar o que eu construo.
@@ -583,8 +584,8 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
           <a href="https://github.com/KefilweLourenco" target="_blank" rel="noopener" class="btn-g">GitHub ↗</a>
         </div>
         <div class="h-tags sr d4" aria-label="Principais tecnologias">
-          <span class="htag">React</span><span class="htag">TypeScript</span><span class="htag">Next.js</span>
-          <span class="htag">NestJS</span><span class="htag">MySQL</span><span class="htag">Vite</span>
+          <span class="htag">React</span><span class="htag">TypeScript</span><span class="htag">JavaScript</span>
+          <span class="htag">Vite</span><span class="htag">NestJS</span><span class="htag">MySQL</span>
         </div>
       </div>
       <div class="photo-wrap sr d2">
@@ -629,8 +630,8 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
     <div class="about-grid">
       <div class="about-body sr d1">
         <p>
-          Sou formado Full Stack pela <strong>Generation Brasil</strong> e estudante de <strong>Psicologia</strong> —
-          duas áreas que, pra mim, andam juntas. Enquanto o código resolve problemas técnicos,
+          Concluí a formação <strong>Full Stack JavaScript</strong> pela <strong>Generation Brasil</strong> em 2026
+          e sou estudante de <strong>Psicologia</strong>. Enquanto o código resolve problemas técnicos,
           a psicologia me ajuda a entender <em>quem são as pessoas</em> por trás de cada tela.
         </p>
         <p>
@@ -650,7 +651,7 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
       <div class="about-stats sr d2">
         <div class="stat-b"><div class="stat-n g">2022</div><div class="stat-d">Experiência ensinando tecnologia</div></div>
         <div class="stat-b"><div class="stat-n b">2026</div><div class="stat-d">Full Stack · Generation Brasil</div></div>
-        <div class="stat-b"><div class="stat-n g">Home + QA</div><div class="stat-d">PeopleCore ERP</div></div>
+        <div class="stat-b"><div class="stat-n g">PO + Front</div><div class="stat-d">PeopleCore ERP</div></div>
         <div class="stat-b"><div class="stat-n b">Front+</div><div class="stat-d">Foco em experiência do usuário</div></div>
       </div>
     </div>
@@ -661,7 +662,7 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
 <section id="proof" aria-label="Métricas e prova social">
   <div class="w">
     <div class="proof-grid sr">
-      <div class="proof-item"><div class="proof-n">2026</div><div class="proof-d">Formação Full Stack concluída na Generation Brasil</div></div>
+      <div class="proof-item"><div class="proof-n">2026</div><div class="proof-d">Formação Full Stack JavaScript concluída na Generation Brasil</div></div>
       <div class="proof-item"><div class="proof-n">6+</div><div class="proof-d">Projetos publicados e selecionados no portfólio</div></div>
       <div class="proof-item"><div class="proof-n">GenDay</div><div class="proof-d">PeopleCore apresentado para empresas parceiras</div></div>
       <div class="proof-item"><div class="proof-n">2022 →</div><div class="proof-d">Experiência ensinando tecnologia e inclusão digital</div></div>
@@ -681,8 +682,8 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
           <div class="feat-title">PeopleCore <span>ERP</span></div>
           <p class="feat-desc">Sistema de gestão de pessoas desenvolvido em equipe e apresentado para empresas no GenDay da Generation Brasil.</p>
           <div class="roles">
-            <span class="rp rp-g">Home</span>
-            <span class="rp rp-b">QA</span>
+            <span class="rp rp-g">Product Owner</span>
+            <span class="rp rp-b">Desenvolvedor Front-End</span>
           </div>
         </div>
         <div class="feat-acts">
@@ -693,13 +694,13 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
       <div class="feat-preview">
         <div class="mock-browser" role="img" aria-label="Mockup da interface do sistema PeopleCore">
           <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-url">people-core-front.vercel.app</span></div>
-          <img class="mock-project-img" src="./assets/img/projects/peoplecore.png" alt="Tela de login do sistema PeopleCore"/>
+          <img class="mock-project-img" src="./assets/img/projects/peoplecore-home.png" alt="Home do sistema PeopleCore com indicadores de funcionários, departamentos, cargos e férias"/>
         </div>
       </div>
       <div class="feat-cases">
         <div class="fc"><div class="fc-n">01 · Problema</div><div class="fc-h">Gestão fragmentada</div><p class="fc-p">Empresas precisavam centralizar dados de funcionários e departamentos em um único sistema.</p></div>
-        <div class="fc"><div class="fc-n">02 · Minha parte</div><div class="fc-h">Home + Qualidade</div><p class="fc-p">Desenvolvi a página principal do ERP, cuido da responsividade, integrei componentes e fiz testes de qualidade.</p></div>
-        <div class="fc"><div class="fc-n">03 · Solução</div><div class="fc-h">React + TypeScript</div><p class="fc-p">Interface construída com Vite, componentização clara e design consistente em todas as telas.</p></div>
+        <div class="fc"><div class="fc-n">02 · Minha parte</div><div class="fc-h">Product Owner + Front-End</div><p class="fc-p">Atuei na definição do produto e desenvolvi a Home, refinando UX, responsividade e integração visual.</p></div>
+        <div class="fc"><div class="fc-n">03 · Solução</div><div class="fc-h">Home integrada</div><p class="fc-p">Interface construída com React, TypeScript e Vite, com componentes claros e experiência consistente.</p></div>
         <div class="fc"><div class="fc-n">04 · Resultado</div><div class="fc-h">Apresentação no GenDay</div><p class="fc-p">Projeto apresentado a empresas parceiras e mantido em refinamento contínuo pela equipe.</p></div>
       </div>
       <div class="feat-stack">
@@ -719,20 +720,49 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
     <p class="sec-s sr d2">Uma seleção de aplicações que mostram minha evolução em produto, interface e desenvolvimento Full Stack.</p>
     <div class="proj-grid" id="repoGrid">
       <div class="pcard sr d1">
-        <div class="pc-visual"><div class="pv-label">API · Psicologia</div><div class="pv-window"><div class="pv-side"></div><div class="pv-body"><div class="pv-line"></div><div class="pv-line short"></div><div class="pv-line"></div></div></div></div>
-        <div class="pc-top"><div class="pc-icon ic-g">API</div><div class="pc-links"><a href="https://github.com/KefilweLourenco/api-gestao-psicologos" target="_blank" rel="noopener" class="mb">Código ↗</a></div></div>
-        <div class="pc-name">API Gestão de Psicólogos</div>
-        <p class="pc-desc">Back-end em evolução para organizar atendimentos e rotinas profissionais.</p>
-        <dl class="pc-case"><dt>Problema</dt><dd>Centralizar psicólogos, pacientes e agenda.</dd><dt>Solução</dt><dd>API REST estruturada com NestJS e TypeORM.</dd><dt>Resultado</dt><dd>Base sólida para novas regras de negócio.</dd></dl>
-        <div class="pc-tags"><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">MySQL</span><span class="tag">TypeORM</span><span class="tag">REST</span></div>
+        <div class="pc-visual real"><img class="pc-project-img" src="./assets/img/projects/rotadelas-home.png" alt="Home do projeto RotaDelas com proposta de transporte seguro para mulheres"/></div>
+        <div class="pc-top"><div class="pc-icon ic-b">HOME</div><div class="pc-links"><a href="https://github.com/Grupo-03-Turma-JavaScript-14/rotadelas-front" target="_blank" rel="noopener" class="mb">Código ↗</a></div></div>
+        <div class="pc-name">RotaDelas</div>
+        <p class="pc-desc">Projeto em equipe pensado a partir de necessidades reais e impacto social.</p>
+        <dl class="pc-case"><dt>Problema</dt><dd>Criar uma experiência útil e acolhedora para o público do projeto.</dd><dt>Solução</dt><dd>Interface com foco em usabilidade, clareza e impacto social.</dd><dt>Meu papel</dt><dd>Desenvolvimento da Home.</dd><dt>Resultado</dt><dd>Projeto colaborativo disponível no GitHub.</dd></dl>
+        <div class="pc-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">CSS</span></div>
       </div>
       <div class="pcard sr d2">
         <div class="pc-visual real"><img class="pc-project-img" src="./assets/img/projects/savedrive.png" alt="Prévia da página inicial do projeto Save Drive"/></div>
-        <div class="pc-top"><div class="pc-icon ic-b">WEB</div><div class="pc-links"><a href="https://save-drive-front.vercel.app/" target="_blank" rel="noopener" class="mb">Projeto ↗</a></div></div>
+        <div class="pc-top"><div class="pc-icon ic-b">PO</div><div class="pc-links"><a href="https://save-drive-front.vercel.app/" target="_blank" rel="noopener" class="mb">Projeto ↗</a><a href="https://github.com/Grupo-03-Turma-JavaScript-14/save-drive-front" target="_blank" rel="noopener" class="mb">Código ↗</a></div></div>
         <div class="pc-name">Save Drive</div>
-        <p class="pc-desc">Interface responsiva construída com atenção a fluxo e organização visual.</p>
-        <dl class="pc-case"><dt>Problema</dt><dd>Apresentar funcionalidades com navegação clara.</dd><dt>Solução</dt><dd>Componentes reutilizáveis e layout responsivo.</dd><dt>Resultado</dt><dd>Aplicação publicada na Vercel.</dd></dl>
+        <p class="pc-desc">Plataforma de seguro automotivo com jornada direta e apresentação clara dos serviços.</p>
+        <dl class="pc-case"><dt>Problema</dt><dd>Organizar uma experiência digital simples para contratação de seguro.</dd><dt>Solução</dt><dd>Interface responsiva com hierarquia visual e fluxo objetivo.</dd><dt>Meu papel</dt><dd>Product Owner do projeto.</dd><dt>Resultado</dt><dd>Aplicação publicada na Vercel.</dd></dl>
         <div class="pc-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">CSS</span></div>
+      </div>
+      <div class="pcard sr d3">
+        <div class="pc-visual real">
+          <video class="pc-video" controls muted preload="metadata" playsinline aria-label="Demonstração do projeto Windows 3.1 Birthday Card">
+            <source src="./assets/video/windows-3-1-birthday-card-demo.mp4" type="video/mp4"/>
+            Seu navegador não conseguiu reproduzir o vídeo. <a href="https://github.com/KefilweLourenco/Windows-3.1-Birthday-Card-" target="_blank" rel="noopener">Veja a demonstração no repositório.</a>
+          </video>
+        </div>
+        <div class="pc-top"><div class="pc-icon ic-y">UI</div><div class="pc-links"><a href="https://github.com/KefilweLourenco/Windows-3.1-Birthday-Card-" target="_blank" rel="noopener" class="mb">Código ↗</a></div></div>
+        <div class="pc-name">Windows 3.1 Birthday Card</div>
+        <p class="pc-desc">Experiência interativa inspirada no Windows NT 3.1 e criada para minha irmã.</p>
+        <dl class="pc-case"><dt>Problema</dt><dd>Criar um presente digital pessoal e memorável.</dd><dt>Solução</dt><dd>Interface retrô com interações próprias.</dd><dt>Resultado</dt><dd>Experimento visual com identidade forte.</dd></dl>
+        <div class="pc-tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">CSS</span><span class="tag">Vite</span></div>
+      </div>
+      <div class="pcard sr d1">
+        <div class="pc-visual real"><img class="pc-project-img" src="./assets/img/projects/blog-pessoal.png" alt="Prévia da tela de login do Blog Pessoal"/></div>
+        <div class="pc-top"><div class="pc-icon ic-b">CRUD</div><div class="pc-links"><a href="https://blogpessoal-frontend-hazel.vercel.app/" target="_blank" rel="noopener" class="mb">Projeto ↗</a><a href="https://github.com/KefilweLourenco/blogpessoal_frontend" target="_blank" rel="noopener" class="mb">Código ↗</a></div></div>
+        <div class="pc-name">Blog Pessoal</div>
+        <p class="pc-desc">Aplicação Full Stack criada durante a formação JavaScript da Generation Brasil.</p>
+        <dl class="pc-case"><dt>Problema</dt><dd>Gerenciar publicações e temas em uma aplicação.</dd><dt>Solução</dt><dd>Fluxo CRUD integrado entre front e back-end.</dd><dt>Resultado</dt><dd>Projeto publicado com navegação completa.</dd></dl>
+        <div class="pc-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">NestJS</span><span class="tag">MySQL</span></div>
+      </div>
+      <div class="pcard sr d2">
+        <div class="pc-visual real"><img class="pc-project-img" src="./assets/img/projects/api-gestao-psicologos-home.png" alt="Home da API Gestão de Psicólogos com painel de agenda, pacientes e atendimentos"/></div>
+        <div class="pc-top"><div class="pc-icon ic-g">API</div><div class="pc-links"><a href="https://github.com/KefilweLourenco/api-gestao-psicologos" target="_blank" rel="noopener" class="mb">Código ↗</a></div></div>
+        <div class="pc-name">API Gestão de Psicólogos</div>
+        <p class="pc-desc">API e interface de demonstração para organizar atendimentos, confirmações e rotina clínica.</p>
+        <dl class="pc-case"><dt>Problema</dt><dd>Centralizar pacientes, agenda, sessões e remarcações.</dd><dt>Solução</dt><dd>API REST modular com NestJS, Prisma e documentação Swagger.</dd><dt>Resultado</dt><dd>Painel funcional com regras de negócio e testes automatizados.</dd></dl>
+        <div class="pc-tags"><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">Prisma</span><span class="tag">MySQL</span><span class="tag">Swagger</span><span class="tag">Jest</span></div>
       </div>
       <div class="pcard sr d3">
         <div class="pc-visual real"><img class="pc-project-img" src="./assets/img/projects/meteorologia.png" alt="Prévia da tela inicial do App Meteorologia"/></div>
@@ -741,30 +771,6 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
         <p class="pc-desc">Consulta meteorológica com dados atuais e experiência direta de uso.</p>
         <dl class="pc-case"><dt>Problema</dt><dd>Consultar o clima rapidamente por localização.</dd><dt>Solução</dt><dd>Busca, geolocalização e API Open-Meteo.</dd><dt>Resultado</dt><dd>Aplicação publicada no GitHub Pages.</dd></dl>
         <div class="pc-tags"><span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">API REST</span><span class="tag">CSS</span></div>
-      </div>
-      <div class="pcard sr d1">
-        <div class="pc-visual"><div class="pv-label">Web app · Impacto social</div><div class="pv-window"><div class="pv-side"></div><div class="pv-body"><div class="pv-line short"></div><div class="pv-line"></div><div class="pv-line"></div></div></div></div>
-        <div class="pc-top"><div class="pc-icon ic-b">UX</div><div class="pc-links"><a href="https://github.com/Grupo-03-Turma-JavaScript-14/rotadelas-front" target="_blank" rel="noopener" class="mb">Código ↗</a></div></div>
-        <div class="pc-name">RotaDelas</div>
-        <p class="pc-desc">Projeto em equipe pensado a partir de necessidades reais e impacto social.</p>
-        <dl class="pc-case"><dt>Problema</dt><dd>Criar uma experiência útil e acolhedora.</dd><dt>Solução</dt><dd>Interface com foco em usabilidade e clareza.</dd><dt>Resultado</dt><dd>Projeto colaborativo disponível no GitHub.</dd></dl>
-        <div class="pc-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">CSS</span></div>
-      </div>
-      <div class="pcard sr d2">
-        <div class="pc-visual real"><img class="pc-project-img" src="./assets/img/projects/blog-pessoal.png" alt="Prévia da tela de login do Blog Pessoal"/></div>
-        <div class="pc-top"><div class="pc-icon ic-b">CRUD</div><div class="pc-links"><a href="https://blogpessoal-frontend-hazel.vercel.app/" target="_blank" rel="noopener" class="mb">Projeto ↗</a><a href="https://github.com/KefilweLourenco/blogpessoal_frontend" target="_blank" rel="noopener" class="mb">Código ↗</a></div></div>
-        <div class="pc-name">Blog Pessoal</div>
-        <p class="pc-desc">Aplicação Full Stack criada durante a formação JavaScript da Generation Brasil.</p>
-        <dl class="pc-case"><dt>Problema</dt><dd>Gerenciar publicações e temas em uma aplicação.</dd><dt>Solução</dt><dd>Fluxo CRUD integrado entre front e back-end.</dd><dt>Resultado</dt><dd>Projeto publicado com navegação completa.</dd></dl>
-        <div class="pc-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">NestJS</span><span class="tag">MySQL</span></div>
-      </div>
-      <div class="pcard sr d3">
-        <div class="pc-visual"><div class="pv-label">Experimento · Interface</div><div class="pv-window"><div class="pv-side"></div><div class="pv-body"><div class="pv-line short"></div><div class="pv-line"></div><div class="pv-line short"></div></div></div></div>
-        <div class="pc-top"><div class="pc-icon ic-y">UI</div><div class="pc-links"><a href="https://github.com/KefilweLourenco/Windows-3.1-Birthday-Card-" target="_blank" rel="noopener" class="mb">Código ↗</a></div></div>
-        <div class="pc-name">Windows 3.1 Birthday Card</div>
-        <p class="pc-desc">Experiência interativa inspirada no Windows NT 3.1 e criada para minha irmã.</p>
-        <dl class="pc-case"><dt>Problema</dt><dd>Criar um presente digital pessoal e memorável.</dd><dt>Solução</dt><dd>Interface retrô com interações próprias.</dd><dt>Resultado</dt><dd>Experimento visual com identidade forte.</dd></dl>
-        <div class="pc-tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">CSS</span><span class="tag">Vite</span></div>
       </div>
     </div>
   </div>
@@ -778,7 +784,7 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
     <p class="sec-s sr d2">Os dados públicos são atualizados automaticamente pelo GitHub. Se a API estiver indisponível, o painel mantém informações essenciais.</p>
     <div class="gh-grid sr d2">
       <div class="gh-card"><div class="gh-label">Repositórios</div><div class="gh-value" id="gh-repos">18</div><p class="gh-note">Projetos públicos no perfil</p></div>
-      <div class="gh-card"><div class="gh-label">Contribuições</div><div class="gh-value" id="gh-commits">Ativo</div><p class="gh-note">Commits recentes identificados pela API</p></div>
+      <div class="gh-card"><div class="gh-label">Contribuições</div><div class="gh-value" id="gh-commits">Ativo</div><p class="gh-note">Atividade recente no GitHub</p></div>
       <div class="gh-card"><div class="gh-label">Linguagens</div><div class="gh-value words" id="gh-languages">TypeScript · JavaScript · CSS</div><p class="gh-note">Tecnologias mais presentes nos repositórios</p></div>
       <div class="gh-card"><div class="gh-label">Projetos publicados</div><div class="gh-value">4</div><p class="gh-note">Aplicações com acesso online direto</p></div>
     </div>
@@ -806,12 +812,11 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
       <div class="sc sr d2">
         <div class="sc-lbl">Backend</div>
         <div class="chips">
-          <div class="chip"><span class="dot" style="background:#000"></span>Next.js</div>
           <div class="chip"><span class="dot" style="background:#e0234e"></span>NestJS</div>
           <div class="chip"><span class="dot" style="background:#4ade80"></span>APIs REST</div>
           <div class="chip"><span class="dot" style="background:#00684a"></span>MySQL</div>
           <div class="chip"><span class="dot" style="background:#7dd3fc"></span>SQL</div>
-          <div class="chip"><span class="dot" style="background:#2d3748"></span>TypeORM</div>
+          <div class="chip"><span class="dot" style="background:#2d3748"></span>Prisma</div>
         </div>
       </div>
       <div class="sc sr d3">
@@ -851,10 +856,10 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
         <div class="ei">
           <div class="ed">Projeto em equipe</div>
           <div>
-            <div class="et">Desenvolvedor Full Stack + QA</div>
+            <div class="et">Product Owner + Desenvolvedor Front-End</div>
             <div class="eo">PeopleCore ERP · Generation Brasil</div>
-            <p class="eb">Desenvolvimento da página principal do sistema ERP, responsividade, integração de componentes, refinamento visual e testes de qualidade.</p>
-            <div class="eskills"><span class="es">React</span><span class="es">TypeScript</span><span class="es">Vite</span><span class="es">QA</span><span class="es">CSS</span></div>
+            <p class="eb">Atuação na definição do produto e no desenvolvimento e refinamento da Home do ERP, com foco em UX, responsividade, integração de componentes e consistência visual.</p>
+            <div class="eskills"><span class="es">Product Owner</span><span class="es">React</span><span class="es">TypeScript</span><span class="es">Vite</span><span class="es">UX</span><span class="es">CSS</span></div>
           </div>
         </div>
       </div>
