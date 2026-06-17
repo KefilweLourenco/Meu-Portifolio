@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-labelledby="title desc">
+  <title id="title">Símbolo KF</title>
+  <desc id="desc">Versão vetorial do símbolo angular KF da identidade visual de Kefilwe Lourenço.</desc>
+  <g fill="none" fill-rule="evenodd">
+    <path
+      id="kf-k"
+      d="M38 62h67v78L188 57h79L157 167l53 53h-82l-30-31-60 67V62Z"
+      fill="currentColor"
+    />
+    <path
+      id="kf-f"
+      d="M193 57h189l-28 60H231v26h111l-26 57h-85v50h-67V151l-36-36 65-58Z"
+      fill="currentColor"
+    />
+    <path
+      id="kf-accent"
+      d="m178 135 43-43v86l-43-43Z"
+      fill="#2550ff"
+    />
+  </g>
+</svg>

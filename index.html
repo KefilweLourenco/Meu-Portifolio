@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
   <meta name="description" content="Portfólio de Kefilwe Lourenço, Desenvolvedor Fullstack Júnior com foco em interfaces acessíveis e experiências digitais claras.">
   <meta property="og:title" content="Kefilwe Lourenço | Desenvolvedor Fullstack Júnior">
   <meta property="og:description" content="Projetos em React, TypeScript, NestJS e experiências digitais acessíveis.">
@@ -12,8 +13,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      if (!sessionStorage.getItem("kfIntroSeenV2") && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("kf-intro-pending");
+      }
+    } catch (error) {
+      document.documentElement.classList.remove("kf-intro-pending");
+    }
+  </script>
   <style>
     :root {
+      color-scheme: dark;
       --bg: #0c0e13;
       --surface: #10131a;
       --surface-2: #161b25;
@@ -33,25 +45,6 @@
       --sans: "Plus Jakarta Sans", sans-serif;
       --mono: "JetBrains Mono", monospace;
       --shadow: 0 24px 70px rgba(0,0,0,.24);
-    }
-
-    [data-theme="light"] {
-      --bg: #f5f6f0;
-      --surface: #eceee8;
-      --surface-2: #e2e5de;
-      --card: rgba(0,0,0,.035);
-      --card-hover: rgba(0,0,0,.065);
-      --border: rgba(0,0,0,.11);
-      --border-strong: rgba(0,0,0,.22);
-      --text: #15171c;
-      --muted: #4b5263;
-      --subtle: #606776;
-      --green: #15803d;
-      --green-bg: rgba(21,128,61,.08);
-      --green-border: rgba(21,128,61,.3);
-      --blue: #0369a1;
-      --blue-bg: rgba(3,105,161,.08);
-      --shadow: 0 24px 70px rgba(25,30,35,.1);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -107,21 +100,130 @@
     .nav-links { display: flex; align-items: center; gap: 24px; margin: 0; padding: 0; list-style: none; }
     .nav-links a { color: var(--muted); font-size: .78rem; font-weight: 600; }
     .nav-links a:hover { color: var(--text); }
-    .theme-button {
-      width: 44px;
-      height: 44px;
-      display: grid;
+    .kf-intro {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
       place-items: center;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      background: var(--card);
-      color: var(--text);
-      cursor: pointer;
+      overflow: hidden;
+      background: radial-gradient(circle at center, rgba(74,222,128,.13), transparent 25rem), #080a0f;
+      pointer-events: none;
     }
-    .theme-button:hover { border-color: var(--border-strong); background: var(--card-hover); }
+    .kf-intro-pending .kf-intro { display: grid; animation: kf-intro-dissolve 1.35s ease-out forwards; }
+    .kf-intro-symbol {
+      width: clamp(230px, 31vw, 390px);
+      color: var(--green);
+      filter: drop-shadow(0 0 24px rgba(74,222,128,.38));
+      animation: kf-intro-presence 1.2s ease-out forwards;
+    }
+    .kf-intro-fill { fill: currentColor; opacity: 0; animation: kf-intro-fill .55s ease-out .34s forwards; }
+    .kf-intro-accent { fill: var(--blue); opacity: 0; animation: kf-intro-accent .42s ease-out .5s forwards; }
+    .kf-intro-line {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 980;
+      stroke-dashoffset: 980;
+      animation: kf-intro-draw .72s cubic-bezier(.55,.08,.35,1) .05s forwards;
+    }
+    .kf-intro-shine {
+      fill: none;
+      stroke: #d9fff0;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-dasharray: 60 920;
+      stroke-dashoffset: 980;
+      opacity: 0;
+      filter: drop-shadow(0 0 7px rgba(125,211,252,.75));
+      animation: kf-intro-shine .5s ease-out .55s forwards;
+    }
+    @keyframes kf-intro-draw { to { stroke-dashoffset: 0; } }
+    @keyframes kf-intro-fill { to { opacity: .46; } }
+    @keyframes kf-intro-accent { to { opacity: .9; filter: drop-shadow(0 0 9px rgba(37,80,255,.55)); } }
+    @keyframes kf-intro-shine { 0% { opacity: 0; } 25% { opacity: .8; } 100% { opacity: 0; stroke-dashoffset: 0; } }
+    @keyframes kf-intro-presence {
+      0% { opacity: 0; transform: scale(.97); }
+      18%, 72% { opacity: 1; }
+      100% { opacity: 0; transform: scale(1.025); filter: blur(4px) drop-shadow(0 0 24px rgba(74,222,128,.2)); }
+    }
+    @keyframes kf-intro-dissolve {
+      0%, 70% { opacity: 1; visibility: visible; }
+      100% { opacity: 0; visibility: hidden; }
+    }
 
-    .hero { min-height: calc(100vh - 64px); display: grid; align-items: center; padding: 84px 0; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: center; gap: clamp(40px, 8vw, 100px); }
+    .hero {
+      overflow: hidden;
+      isolation: isolate;
+      position: relative;
+      min-height: calc(100vh - 64px);
+      display: grid;
+      align-items: center;
+      padding: 84px 0;
+      background:
+        radial-gradient(circle at 72% 35%, var(--blue-bg), transparent 34rem),
+        var(--bg);
+    }
+    .hero-kf-atmosphere {
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      left: 58%;
+      width: min(72vw, 800px);
+      color: var(--green);
+      opacity: .14;
+      filter: drop-shadow(0 0 30px rgba(74,222,128,.16));
+      transform: translate(-50%, -50%) rotate(-2deg);
+      pointer-events: none;
+      animation: hero-kf-float 14s ease-in-out infinite alternate;
+    }
+    .hero-kf-atmosphere .kf-atmosphere-fill { fill: currentColor; opacity: .2; }
+    .hero-kf-atmosphere .kf-atmosphere-line { fill: none; stroke: currentColor; stroke-width: 1.4; opacity: .72; }
+    .hero-kf-atmosphere .kf-atmosphere-accent { fill: var(--blue); opacity: .62; }
+    .hero-kf-atmosphere::after { content: ""; }
+    @keyframes hero-kf-float {
+      to { opacity: .18; transform: translate(-49%, -51%) rotate(-1deg) scale(1.018); }
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--bg) 74%, transparent), color-mix(in srgb, var(--bg) 28%, transparent) 55%, color-mix(in srgb, var(--bg) 52%, transparent)),
+        radial-gradient(circle at 72% 38%, var(--blue-bg), transparent 34rem);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      background: linear-gradient(180deg, var(--bg) 0%, transparent 18%, transparent 72%, var(--bg) 100%);
+      pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 3; display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: center; gap: clamp(40px, 8vw, 100px); }
+    .js.kf-intro-pending .hero-stage {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    .js.kf-intro-pending .hero-photo-stage {
+      opacity: 0;
+      transform: translateY(10px) scale(.95);
+    }
+    .js.kf-intro-pending.hero-revealing .hero-stage,
+    .js.kf-intro-pending.hero-revealing .hero-photo-stage {
+      animation: hero-stage-enter .55s cubic-bezier(.22,.7,.25,1) forwards;
+    }
+    .js.kf-intro-pending.hero-revealing .hero-stage-badge { animation-delay: 0s; }
+    .js.kf-intro-pending.hero-revealing .hero-stage-name { animation-delay: .07s; }
+    .js.kf-intro-pending.hero-revealing .hero-stage-role { animation-delay: .14s; }
+    .js.kf-intro-pending.hero-revealing .hero-stage-copy { animation-delay: .21s; }
+    .js.kf-intro-pending.hero-revealing .hero-stage-actions { animation-delay: .28s; }
+    .js.kf-intro-pending.hero-revealing .hero-photo-stage { animation-delay: .12s; }
+    @keyframes hero-stage-enter { to { opacity: 1; transform: none; } }
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -151,7 +253,7 @@
       text-rendering: optimizeLegibility;
     }
     .hero-role { display: block; color: var(--green); font-size: .55em; line-height: 1.2; letter-spacing: -.02em; margin-top: 12px; }
-    .hero-copy { max-width: 620px; margin-bottom: 30px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.16rem); }
+    .hero-copy { max-width: 580px; margin-bottom: 30px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.16rem); }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; }
     .button {
       min-height: 44px;
@@ -232,16 +334,131 @@
     .section-intro { margin: 0; color: var(--muted); }
 
     .about { border-block: 1px solid var(--border); background: var(--surface); }
-    .about-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 28px; }
-    .about-copy { margin: 0; max-width: 720px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.28rem); line-height: 1.75; }
-    .about-copy strong { color: var(--text); }
-    .about-points { display: grid; gap: 10px; }
-    .about-point { display: flex; gap: 10px; align-items: start; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); color: var(--muted); font-size: .86rem; }
-    .about-point span { color: var(--green); font-family: var(--mono); }
+    .about-grid { display: grid; grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr); align-items: start; gap: clamp(42px, 7vw, 88px); }
+    .about-intro { position: sticky; top: 110px; }
+    .about-intro h2 { max-width: 540px; }
+    .about-flow {
+      overflow: hidden;
+      position: relative;
+      max-width: 520px;
+      margin-top: clamp(34px, 5vw, 56px);
+      padding-block: 18px;
+      border-block: 1px solid var(--border);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    }
+    .about-flow::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 56px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      box-shadow: 0 0 18px var(--green-border);
+      transform: translateY(-50%);
+    }
+    .about-flow-track {
+      display: flex;
+      width: max-content;
+      gap: 18px;
+      padding-left: 70px;
+      animation: about-flow-scroll 26s linear infinite;
+      will-change: transform;
+    }
+    .about-flow:hover .about-flow-track { animation-play-state: paused; }
+    .about-flow-group { display: flex; align-items: center; gap: 18px; padding-right: 18px; }
+    .about-flow-word {
+      color: var(--text);
+      font: 700 clamp(1rem, 2vw, 1.38rem)/1 var(--sans);
+      letter-spacing: -.03em;
+      white-space: nowrap;
+    }
+    .about-flow-word:nth-child(4n + 1) { color: var(--green); }
+    .about-flow-mark {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+      opacity: .75;
+    }
+    @keyframes about-flow-scroll { to { transform: translateX(-50%); } }
+    .about-journey-label { margin-bottom: 18px; color: var(--muted); font: 500 .72rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 
-    .skill-groups { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-    .skill-group { padding: 20px; border: 1px solid var(--border); border-radius: 14px; background: var(--card); }
-    .skill-group h3 { margin-bottom: 14px; color: var(--blue); font: 500 .72rem var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+    .skills-marquees { display: grid; gap: 14px; }
+    .skills-marquee {
+      overflow: hidden;
+      position: relative;
+      padding: 12px 0;
+      border-block: 1px solid var(--border);
+      background: linear-gradient(90deg, transparent, var(--card) 10%, var(--card) 90%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    }
+    .skills-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: skills-scroll-left 48s linear infinite;
+      will-change: transform;
+    }
+    .skills-marquee-reverse .skills-marquee-track { animation-name: skills-scroll-right; animation-duration: 56s; }
+    .skills-marquee:hover .skills-marquee-track,
+    .skills-marquee:focus-within .skills-marquee-track { animation-play-state: paused; }
+    .skills-marquee-group { display: flex; align-items: center; gap: 10px; padding-right: 10px; }
+    .skills-pill {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font: 500 .78rem var(--mono);
+      white-space: nowrap;
+      transition: transform .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease;
+    }
+    .skills-pill:hover,
+    .skills-pill:focus-visible { border-color: var(--green-border); background: var(--card-hover); color: var(--text); transform: translateY(-2px); }
+    .skills-pill:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+    .skills-icon { width: 25px; height: 25px; flex: 0 0 25px; object-fit: contain; }
+    .skills-icon-monochrome { filter: invert(1); }
+    @media (prefers-color-scheme: light) {
+      :root {
+        color-scheme: light;
+        --bg: #f5f6f0;
+        --surface: #eceee8;
+        --surface-2: #e2e5de;
+        --card: rgba(0,0,0,.035);
+        --card-hover: rgba(0,0,0,.065);
+        --border: rgba(0,0,0,.11);
+        --border-strong: rgba(0,0,0,.22);
+        --text: #15171c;
+        --muted: #4b5263;
+        --subtle: #606776;
+        --green: #15803d;
+        --green-bg: rgba(21,128,61,.08);
+        --green-border: rgba(21,128,61,.3);
+        --blue: #0369a1;
+        --blue-bg: rgba(3,105,161,.08);
+        --shadow: 0 24px 70px rgba(25,30,35,.1);
+      }
+      .skills-icon-monochrome { filter: none; }
+      .kf-intro { background: radial-gradient(circle at center, rgba(21,128,61,.12), transparent 25rem), #f0f2ec; }
+      .kf-intro-symbol { filter: drop-shadow(0 0 22px rgba(21,128,61,.24)); }
+      .kf-intro-shine { stroke: #075985; }
+      .hero-kf-atmosphere { opacity: .1; filter: drop-shadow(0 0 24px rgba(21,128,61,.12)); }
+    }
+    .skills-pill-work { border-style: dashed; color: var(--text); }
+    .skills-pill-work::before { content: ""; width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green-bg); }
+    @keyframes skills-scroll-left { to { transform: translateX(-50%); } }
+    @keyframes skills-scroll-right {
+      from { transform: translateX(-50%); }
+      to { transform: translateX(0); }
+    }
     .chips { display: flex; flex-wrap: wrap; gap: 7px; }
     .chip { padding: 5px 9px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-2); color: var(--muted); font: 500 .75rem var(--mono); }
 
@@ -286,7 +503,8 @@
       background: #07101c;
       box-shadow: inset 0 0 3px rgba(125,211,252,.38);
     }
-    [data-theme="light"] .tablet {
+    @media (prefers-color-scheme: light) {
+    .tablet {
       border-color: #aeb8c4;
       background:
         linear-gradient(135deg, rgba(255,255,255,.95), transparent 27%),
@@ -297,13 +515,14 @@
         inset 0 2px 2px rgba(255,255,255,.95),
         inset 0 -2px 3px rgba(69,81,92,.2);
     }
-    [data-theme="light"] .tablet::before {
+    .tablet::before {
       background: #65717d;
       box-shadow: inset 0 1px 1px rgba(255,255,255,.35);
     }
-    [data-theme="light"] .tablet::after {
+    .tablet::after {
       border-color: #7f91a5;
       background: #31506c;
+    }
     }
     .tablet-screen {
       overflow: hidden;
@@ -370,7 +589,7 @@
     .timeline-marker { position: relative; z-index: 2; width: 12px; height: 12px; margin: 25px auto 0; border: 2px solid var(--bg); border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px var(--green-bg), 0 0 14px rgba(74,222,128,.25); }
     .timeline-card { position: relative; padding: 22px 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); transition: border-color .2s, background .2s; }
     .timeline-card:hover { border-color: var(--green-border); background: var(--card-hover); }
-    .timeline-card h3 { margin-bottom: 6px; font: 600 1.08rem/1.35 var(--sans); }
+    .timeline-card h4 { margin-bottom: 6px; font: 600 1.08rem/1.35 var(--sans); }
     .timeline-card p { max-width: 680px; margin-bottom: 14px; color: var(--muted); font-size: .86rem; }
     .timeline-status { display: inline-block; margin-bottom: 7px; color: var(--green); font: 500 .75rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 
@@ -390,14 +609,15 @@
     .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 940px) {
-      .skill-groups { grid-template-columns: repeat(2, 1fr); }
-      .skill-group:last-child { grid-column: span 2; }
+      .skills-marquee-track { animation-duration: 48s; }
+      .skills-marquee-reverse .skills-marquee-track { animation-duration: 56s; }
     }
     @media (max-width: 760px) {
       .container { width: min(100% - 28px, 1120px); }
       section { padding: 68px 0; }
       .nav-links { display: none; }
       .hero { min-height: auto; padding: 70px 0; }
+      .hero-kf-atmosphere { top: 43%; left: 50%; width: min(112vw, 650px); opacity: .1; }
       .hero-grid { grid-template-columns: 1fr; }
       .hero-content { text-align: center; }
       .hero-copy { margin-inline: auto; }
@@ -406,6 +626,8 @@
       .portrait-dot + .mini-label { top: -45px; }
       .section-head, .about-grid { grid-template-columns: 1fr; }
       .section-head { align-items: start; gap: 14px; }
+      .about-intro { position: static; }
+      .about-flow { margin-top: 28px; }
       .tablet { padding: 27px 18px 18px; border-radius: 28px; }
       .tablet-screen { border-radius: 13px; }
       .project-slide { padding: 22px; }
@@ -415,10 +637,18 @@
       .project-card .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
     }
     @media (max-width: 520px) {
+      .kf-intro-symbol { width: min(68vw, 280px); }
+      .hero-kf-atmosphere { width: 145vw; opacity: .075; }
+      .about-flow { max-width: 100%; padding-block: 15px; }
+      .about-flow-track { gap: 14px; padding-left: 52px; animation-duration: 22s; }
+      .about-flow-group { gap: 14px; padding-right: 14px; }
       h1 { font-size: clamp(2.65rem, 15vw, 4rem); }
       .actions .button { flex: 1 1 130px; }
-      .skill-groups { grid-template-columns: 1fr; }
-      .skill-group:last-child { grid-column: auto; }
+      .skills-marquees { gap: 10px; }
+      .skills-marquee { padding: 10px 0; }
+      .skills-marquee-group { gap: 8px; padding-right: 8px; }
+      .skills-pill { min-height: 44px; gap: 8px; padding: 8px 12px; font-size: .72rem; }
+      .skills-icon { width: 22px; height: 22px; flex-basis: 22px; }
       .mini-label { font-size: .68rem; }
       .tablet { width: calc(100% + 8px); margin-left: -4px; padding: 25px 12px 12px; border-radius: 22px; }
       .project-slide { padding: 17px; }
@@ -436,15 +666,36 @@
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: .01ms !important; }
+      .kf-intro { display: none !important; }
       .reveal { opacity: 1; transform: none; }
+      .js.kf-intro-pending .hero-stage, .js.kf-intro-pending .hero-photo-stage { opacity: 1; transform: none; }
+      .hero-kf-atmosphere { animation: none; opacity: .1; transform: translate(-50%, -50%); }
+      .about-flow { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+      .about-flow-track { animation: none; transform: none; }
+      .about-flow-group[aria-hidden="true"] { display: none; }
       .portrait-dot { transform: rotate(0deg); }
+      .skills-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+      .skills-marquee-track { width: max-content; transform: none !important; }
+      .skills-marquee-group[aria-hidden="true"] { display: none; }
     }
     @media (forced-colors: active) {
-      .button, .skill-group, .tablet, .tablet-screen, .project-preview, .project-card, .timeline-card, .contact-box { border: 1px solid CanvasText; }
+      .kf-intro { display: none !important; }
+      .button, .skills-marquee, .skills-pill, .tablet, .tablet-screen, .project-preview, .project-card, .timeline-card, .contact-box { border: 1px solid CanvasText; }
     }
   </style>
 </head>
 <body>
+  <div class="kf-intro" id="kfIntro" aria-hidden="true">
+    <svg class="kf-intro-symbol" viewBox="0 0 420 320" focusable="false">
+      <path class="kf-intro-fill" d="M38 62h67v78L188 57h79L157 167l53 53h-82l-30-31-60 67V62Z"/>
+      <path class="kf-intro-fill" d="M193 57h189l-28 60H231v26h111l-26 57h-85v50h-67V151l-36-36 65-58Z"/>
+      <path class="kf-intro-accent" d="m178 135 43-43v86l-43-43Z"/>
+      <path class="kf-intro-line" pathLength="980" d="M38 256V62h67v78L188 57h194l-28 60H231v26h111l-26 57h-85v50h-67v-99l-36-36"/>
+      <path class="kf-intro-line" pathLength="980" d="m98 189 30 31h82l-53-53L267 57"/>
+      <path class="kf-intro-shine" pathLength="980" d="M38 256V62h67v78L188 57h194l-28 60H231v26h111l-26 57h-85v50"/>
+    </svg>
+  </div>
+
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
   <header class="site-header">
@@ -457,26 +708,30 @@
         <li><a href="#trajetoria">Trajetória</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
-      <button class="theme-button" id="themeButton" type="button" aria-label="Ativar tema claro" title="Alternar tema">
-        <span aria-hidden="true">☼</span>
-      </button>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <svg class="hero-kf-atmosphere" viewBox="0 0 420 320" aria-hidden="true" focusable="false">
+        <path class="kf-atmosphere-fill" d="M38 62h67v78L188 57h79L157 167l53 53h-82l-30-31-60 67V62Z"/>
+        <path class="kf-atmosphere-fill" d="M193 57h189l-28 60H231v26h111l-26 57h-85v50h-67V151l-36-36 65-58Z"/>
+        <path class="kf-atmosphere-accent" d="m178 135 43-43v86l-43-43Z"/>
+        <path class="kf-atmosphere-line" d="M38 256V62h67v78L188 57h194l-28 60H231v26h111l-26 57h-85v50h-67v-99l-36-36"/>
+        <path class="kf-atmosphere-line" d="m98 189 30 31h82l-53-53L267 57"/>
+      </svg>
       <div class="hero-grid container">
-        <div class="hero-content reveal">
-          <div class="eyebrow">Disponível para oportunidades</div>
-          <h1 id="hero-title"><span class="hero-name">Kefilwe Lourenço</span><span class="hero-role">Desenvolvedor Fullstack Júnior</span></h1>
-          <p class="hero-copy">Transformo ideias em produtos digitais claros, acessíveis e bem construídos, do front-end à API.</p>
-          <div class="actions">
+        <div class="hero-content">
+          <div class="eyebrow hero-stage hero-stage-badge">Disponível para oportunidades</div>
+          <h1 id="hero-title"><span class="hero-name hero-stage hero-stage-name">Kefilwe Lourenço</span><span class="hero-role hero-stage hero-stage-role">Desenvolvedor Fullstack Júnior</span></h1>
+          <p class="hero-copy hero-stage hero-stage-copy">Crio produtos digitais acessíveis, funcionais e bem estruturados.</p>
+          <div class="actions hero-stage hero-stage-actions">
             <a class="button primary" href="#projetos">Ver projetos <span aria-hidden="true">↓</span></a>
             <a class="button" href="https://github.com/KefilweLourenco" target="_blank" rel="noopener noreferrer" aria-label="Abrir GitHub de Kefilwe em nova aba">GitHub <span aria-hidden="true">↗</span></a>
             <a class="button" href="https://www.linkedin.com/in/kefilwe-lourenco/" target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn de Kefilwe em nova aba">LinkedIn <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <div class="portrait-wrap reveal">
+        <div class="portrait-wrap hero-photo-stage">
           <img class="portrait" src="./assets/img/profile-kefilwe.jpg" alt="Kefilwe Lourenço, desenvolvedor Fullstack Júnior" width="480" height="480">
           <span class="portrait-dot" aria-hidden="true"></span>
           <span class="mini-label">React • TypeScript • NestJS</span>
@@ -486,18 +741,59 @@
 
     <section class="about" id="sobre" aria-labelledby="about-title">
       <div class="container">
-        <div class="section-head reveal">
-          <div>
+        <div class="about-grid">
+          <div class="about-intro reveal">
             <div class="kicker">Sobre mim</div>
             <h2 id="about-title">Tecnologia feita para pessoas.</h2>
+            <div class="about-flow" aria-label="Pilares da minha trajetória">
+              <div class="about-flow-track">
+                <div class="about-flow-group">
+                  <span class="about-flow-word">Código</span><span class="about-flow-mark" aria-hidden="true"></span>
+                  <span class="about-flow-word">Educação</span><span class="about-flow-mark" aria-hidden="true"></span>
+                  <span class="about-flow-word">Psicologia</span><span class="about-flow-mark" aria-hidden="true"></span>
+                </div>
+                <div class="about-flow-group" aria-hidden="true">
+                  <span class="about-flow-word">Código</span><span class="about-flow-mark"></span>
+                  <span class="about-flow-word">Educação</span><span class="about-flow-mark"></span>
+                  <span class="about-flow-word">Psicologia</span><span class="about-flow-mark"></span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="about-grid">
-          <p class="about-copy reveal">Sou <strong>Fullstack JavaScript</strong>, estudante de Psicologia e instrutor de tecnologia. Desenvolvo soluções com atenção à <strong>acessibilidade</strong>, à experiência de uso e à qualidade do código. Aprendo continuamente e levo para cada projeto a prática de comunicar, ouvir e resolver problemas reais.</p>
-          <div class="about-points reveal" aria-label="Diferenciais profissionais">
-            <div class="about-point"><span aria-hidden="true">01</span> Código com foco em acessibilidade</div>
-            <div class="about-point"><span aria-hidden="true">02</span> Comunicação simples e humana</div>
-            <div class="about-point"><span aria-hidden="true">03</span> Aprendizado contínuo e colaboração</div>
+          <div id="trajetoria" aria-label="Trajetória profissional">
+            <h3 class="about-journey-label">Trajetória</h3>
+            <div class="timeline">
+              <article class="timeline-item reveal">
+                <div class="timeline-date">Atual</div>
+                <span class="timeline-marker" aria-hidden="true"></span>
+                <div class="timeline-card">
+                  <span class="timeline-status">Próximo passo</span>
+                  <h4>Psicologia + Desenvolvimento Fullstack</h4>
+                  <p>Continuo a graduação em Psicologia, aprimoro minha stack e busco minha primeira oportunidade como desenvolvedor.</p>
+                  <div class="chips"><span class="chip">Aprendizado contínuo</span><span class="chip">Empatia</span><span class="chip">Fullstack</span></div>
+                </div>
+              </article>
+              <article class="timeline-item reveal">
+                <div class="timeline-date">2026</div>
+                <span class="timeline-marker" aria-hidden="true"></span>
+                <div class="timeline-card">
+                  <span class="timeline-status">Formação técnica</span>
+                  <h4>Full Stack JavaScript · Generation Brasil</h4>
+                  <p>Formação intensiva com projetos práticos, metodologias ágeis e desenvolvimento de aplicações completas.</p>
+                  <div class="chips"><span class="chip">React</span><span class="chip">NestJS</span><span class="chip">MySQL</span><span class="chip">Scrum</span></div>
+                </div>
+              </article>
+              <article class="timeline-item reveal">
+                <div class="timeline-date">2022</div>
+                <span class="timeline-marker" aria-hidden="true"></span>
+                <div class="timeline-card">
+                  <span class="timeline-status">Início da jornada</span>
+                  <h4>Instrutor de Tecnologia e Inclusão Digital</h4>
+                  <p>Comecei a ensinar tecnologia com linguagem acessível e conteúdo adaptado a diferentes formas de aprender.</p>
+                  <div class="chips"><span class="chip">Comunicação</span><span class="chip">Didática</span><span class="chip">Acessibilidade</span></div>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </div>
@@ -510,29 +806,82 @@
             <div class="kicker">Skills</div>
             <h2 id="skills-title">Ferramentas que uso para construir.</h2>
           </div>
-          <p class="section-intro">Uma stack em evolução, aplicada em projetos individuais e colaborativos.</p>
+          <p class="section-intro">Uma seleção das tecnologias que fazem parte do meu dia a dia.</p>
         </div>
-        <div class="skill-groups">
-          <article class="skill-group reveal">
-            <h3>Front-end</h3>
-            <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Vite</span></div>
-          </article>
-          <article class="skill-group reveal">
-            <h3>Back-end</h3>
-            <div class="chips"><span class="chip">NestJS</span><span class="chip">Node.js</span><span class="chip">APIs REST</span><span class="chip">Swagger</span><span class="chip">Jest</span></div>
-          </article>
-          <article class="skill-group reveal">
-            <h3>Banco de dados</h3>
-            <div class="chips"><span class="chip">MySQL</span><span class="chip">SQL</span><span class="chip">Prisma</span><span class="chip">TypeORM</span></div>
-          </article>
-          <article class="skill-group reveal">
-            <h3>Ferramentas</h3>
-            <div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Figma</span><span class="chip">Vercel</span><span class="chip">Insomnia</span></div>
-          </article>
-          <article class="skill-group reveal">
-            <h3>Forma de trabalho</h3>
-            <div class="chips"><span class="chip">Clareza</span><span class="chip">Acessibilidade</span><span class="chip">Trabalho em equipe</span><span class="chip">Escuta ativa</span><span class="chip">Documentação</span></div>
-          </article>
+        <div class="skills-marquees reveal">
+          <div class="skills-marquee" role="region" aria-label="Tecnologias principais em movimento contínuo">
+            <div class="skills-marquee-track">
+              <div class="skills-marquee-group">
+                <span class="skills-pill" tabindex="0" title="React"><img class="skills-icon" src="https://cdn.simpleicons.org/react/61DAFB" alt="" aria-hidden="true"><span>React</span></span>
+                <span class="skills-pill" tabindex="0" title="TypeScript"><img class="skills-icon" src="./assets/icons/languages/typescript.svg" alt="" aria-hidden="true"><span>TypeScript</span></span>
+                <span class="skills-pill" tabindex="0" title="JavaScript"><img class="skills-icon" src="./assets/icons/languages/javascript.svg" alt="" aria-hidden="true"><span>JavaScript</span></span>
+                <span class="skills-pill" tabindex="0" title="HTML5"><img class="skills-icon" src="./assets/icons/languages/html.svg" alt="" aria-hidden="true"><span>HTML</span></span>
+                <span class="skills-pill" tabindex="0" title="CSS3"><img class="skills-icon" src="./assets/icons/languages/css.svg" alt="" aria-hidden="true"><span>CSS</span></span>
+                <span class="skills-pill" tabindex="0" title="Vite"><img class="skills-icon" src="https://cdn.simpleicons.org/vite/646CFF" alt="" aria-hidden="true"><span>Vite</span></span>
+                <span class="skills-pill" tabindex="0" title="NestJS"><img class="skills-icon" src="https://cdn.simpleicons.org/nestjs/E0234E" alt="" aria-hidden="true"><span>NestJS</span></span>
+                <span class="skills-pill" tabindex="0" title="Node.js"><img class="skills-icon" src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="" aria-hidden="true"><span>Node.js</span></span>
+                <span class="skills-pill" tabindex="0" title="Swagger"><img class="skills-icon" src="https://cdn.simpleicons.org/swagger/85EA2D" alt="" aria-hidden="true"><span>Swagger</span></span>
+                <span class="skills-pill" tabindex="0" title="Jest"><img class="skills-icon" src="https://cdn.simpleicons.org/jest/C21325" alt="" aria-hidden="true"><span>Jest</span></span>
+                <span class="skills-pill" tabindex="0" title="MySQL"><img class="skills-icon" src="https://cdn.simpleicons.org/mysql/4479A1" alt="" aria-hidden="true"><span>MySQL</span></span>
+                <span class="skills-pill" tabindex="0" title="SQL"><img class="skills-icon" src="https://cdn.simpleicons.org/databricks/FF3621" alt="" aria-hidden="true"><span>SQL</span></span>
+                <span class="skills-pill" tabindex="0" title="Prisma"><img class="skills-icon skills-icon-monochrome" src="https://cdn.simpleicons.org/prisma/000000" alt="" aria-hidden="true"><span>Prisma</span></span>
+                <span class="skills-pill" tabindex="0" title="TypeORM"><img class="skills-icon" src="https://cdn.simpleicons.org/typeorm/FE0803" alt="" aria-hidden="true"><span>TypeORM</span></span>
+                <span class="skills-pill" tabindex="0" title="APIs REST"><img class="skills-icon" src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt="" aria-hidden="true"><span>APIs REST</span></span>
+                <span class="skills-pill" tabindex="0" title="Git"><img class="skills-icon" src="https://cdn.simpleicons.org/git/F05032" alt="" aria-hidden="true"><span>Git</span></span>
+                <span class="skills-pill" tabindex="0" title="GitHub"><img class="skills-icon skills-icon-monochrome" src="./assets/icons/languages/github.svg" alt="" aria-hidden="true"><span>GitHub</span></span>
+                <span class="skills-pill" tabindex="0" title="Figma"><img class="skills-icon" src="https://cdn.simpleicons.org/figma/F24E1E" alt="" aria-hidden="true"><span>Figma</span></span>
+                <span class="skills-pill" tabindex="0" title="Vercel"><img class="skills-icon skills-icon-monochrome" src="https://cdn.simpleicons.org/vercel/000000" alt="" aria-hidden="true"><span>Vercel</span></span>
+                <span class="skills-pill" tabindex="0" title="Insomnia"><img class="skills-icon" src="https://cdn.simpleicons.org/insomnia/4000BF" alt="" aria-hidden="true"><span>Insomnia</span></span>
+              </div>
+              <div class="skills-marquee-group" aria-hidden="true">
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/react/61DAFB" alt=""><span>React</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="./assets/icons/languages/typescript.svg" alt=""><span>TypeScript</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="./assets/icons/languages/javascript.svg" alt=""><span>JavaScript</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="./assets/icons/languages/html.svg" alt=""><span>HTML</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="./assets/icons/languages/css.svg" alt=""><span>CSS</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/vite/646CFF" alt=""><span>Vite</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/nestjs/E0234E" alt=""><span>NestJS</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt=""><span>Node.js</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/swagger/85EA2D" alt=""><span>Swagger</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/jest/C21325" alt=""><span>Jest</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/mysql/4479A1" alt=""><span>MySQL</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/databricks/FF3621" alt=""><span>SQL</span></span>
+                <span class="skills-pill"><img class="skills-icon skills-icon-monochrome" src="https://cdn.simpleicons.org/prisma/000000" alt=""><span>Prisma</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/typeorm/FE0803" alt=""><span>TypeORM</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt=""><span>APIs REST</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/git/F05032" alt=""><span>Git</span></span>
+                <span class="skills-pill"><img class="skills-icon skills-icon-monochrome" src="./assets/icons/languages/github.svg" alt=""><span>GitHub</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/figma/F24E1E" alt=""><span>Figma</span></span>
+                <span class="skills-pill"><img class="skills-icon skills-icon-monochrome" src="https://cdn.simpleicons.org/vercel/000000" alt=""><span>Vercel</span></span>
+                <span class="skills-pill"><img class="skills-icon" src="https://cdn.simpleicons.org/insomnia/4000BF" alt=""><span>Insomnia</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-marquee skills-marquee-reverse" role="region" aria-label="Forma de trabalho em movimento contínuo">
+            <div class="skills-marquee-track">
+              <div class="skills-marquee-group">
+                <span class="skills-pill skills-pill-work" tabindex="0">Clareza</span>
+                <span class="skills-pill skills-pill-work" tabindex="0">Acessibilidade</span>
+                <span class="skills-pill skills-pill-work" tabindex="0">Trabalho em equipe</span>
+                <span class="skills-pill skills-pill-work" tabindex="0">Escuta ativa</span>
+                <span class="skills-pill skills-pill-work" tabindex="0">Documentação</span>
+                <span class="skills-pill skills-pill-work" tabindex="0">Organização</span>
+                <span class="skills-pill skills-pill-work" tabindex="0">Comunicação</span>
+                <span class="skills-pill skills-pill-work" tabindex="0">Resolução de problemas</span>
+              </div>
+              <div class="skills-marquee-group" aria-hidden="true">
+                <span class="skills-pill skills-pill-work">Clareza</span>
+                <span class="skills-pill skills-pill-work">Acessibilidade</span>
+                <span class="skills-pill skills-pill-work">Trabalho em equipe</span>
+                <span class="skills-pill skills-pill-work">Escuta ativa</span>
+                <span class="skills-pill skills-pill-work">Documentação</span>
+                <span class="skills-pill skills-pill-work">Organização</span>
+                <span class="skills-pill skills-pill-work">Comunicação</span>
+                <span class="skills-pill skills-pill-work">Resolução de problemas</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -642,50 +991,6 @@
       </div>
     </section>
 
-    <section id="trajetoria" aria-labelledby="timeline-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <div class="kicker">Experiência e formação</div>
-            <h2 id="timeline-title">Uma trajetória em construção.</h2>
-          </div>
-          <p class="section-intro">Tecnologia, educação e contato direto com diferentes pessoas orientam meu trabalho.</p>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item reveal">
-            <div class="timeline-date">Atual</div>
-            <span class="timeline-marker" aria-hidden="true"></span>
-            <div class="timeline-card">
-              <span class="timeline-status">Próximo passo</span>
-              <h3>Psicologia + Desenvolvimento Fullstack</h3>
-              <p>Continuo a graduação em Psicologia, aprimoro minha stack e busco minha primeira oportunidade como desenvolvedor.</p>
-              <div class="chips"><span class="chip">Aprendizado contínuo</span><span class="chip">Empatia</span><span class="chip">Fullstack</span></div>
-            </div>
-          </article>
-          <article class="timeline-item reveal">
-            <div class="timeline-date">2026</div>
-            <span class="timeline-marker" aria-hidden="true"></span>
-            <div class="timeline-card">
-              <span class="timeline-status">Formação técnica</span>
-              <h3>Full Stack JavaScript · Generation Brasil</h3>
-              <p>Formação intensiva com projetos práticos, metodologias ágeis e desenvolvimento de aplicações completas.</p>
-              <div class="chips"><span class="chip">React</span><span class="chip">NestJS</span><span class="chip">MySQL</span><span class="chip">Scrum</span></div>
-            </div>
-          </article>
-          <article class="timeline-item reveal">
-            <div class="timeline-date">2022</div>
-            <span class="timeline-marker" aria-hidden="true"></span>
-            <div class="timeline-card">
-              <span class="timeline-status">Início da jornada</span>
-              <h3>Instrutor de Tecnologia e Inclusão Digital</h3>
-              <p>Comecei a ensinar tecnologia com linguagem acessível e conteúdo adaptado a diferentes formas de aprender.</p>
-              <div class="chips"><span class="chip">Comunicação</span><span class="chip">Didática</span><span class="chip">Acessibilidade</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="contact" id="contato" aria-labelledby="contact-title">
       <div class="container">
         <div class="contact-box reveal">
@@ -715,20 +1020,22 @@
 
   <script>
     const root = document.documentElement;
-    const themeButton = document.getElementById("themeButton");
-    const savedTheme = localStorage.getItem("portfolio-theme");
-    const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
 
-    function setTheme(theme) {
-      root.dataset.theme = theme;
-      localStorage.setItem("portfolio-theme", theme);
-      const isDark = theme === "dark";
-      themeButton.innerHTML = `<span aria-hidden="true">${isDark ? "☼" : "☾"}</span>`;
-      themeButton.setAttribute("aria-label", isDark ? "Ativar tema claro" : "Ativar tema escuro");
+    const introIsActive = root.classList.contains("kf-intro-pending");
+    if (introIsActive) {
+      window.setTimeout(() => root.classList.add("hero-revealing"), 590);
+      window.setTimeout(() => {
+        try {
+          sessionStorage.setItem("kfIntroSeenV2", "true");
+        } catch (error) {
+          // A Hero permanece funcional quando o armazenamento da sessão está indisponível.
+        }
+        root.classList.remove("kf-intro-pending", "hero-revealing");
+        document.getElementById("kfIntro").remove();
+      }, 1400);
+    } else {
+      document.getElementById("kfIntro").remove();
     }
-
-    setTheme(savedTheme || preferredTheme);
-    themeButton.addEventListener("click", () => setTheme(root.dataset.theme === "dark" ? "light" : "dark"));
 
     const carousel = document.getElementById("projectCarousel");
     const projectTrack = document.getElementById("projectTrack");
