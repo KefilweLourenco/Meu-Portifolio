@@ -1,42 +1,32 @@
-# Portfólio Pessoal | Kefilwe Lourenço
+﻿# Portfólio arquivado | Kefilwe Lourenço
 
-Portfólio profissional de Kefilwe Lourenço, Desenvolvedor Full Stack JavaScript formado pela Generation Brasil e instrutor de tecnologia.
+Este repositório guarda apenas uma página estática de aviso e redirecionamento do meu portfólio antigo para a versão atual.
 
-O projeto foi construído com HTML, CSS e JavaScript, mantendo a identidade visual em tons de preto, vinho e dourado. A proposta é apresentar trajetória, tecnologias, projetos selecionados e formas de contato de maneira clara para recrutadores.
+Novo portfólio: [https://kefilwe.dev/](https://kefilwe.dev/)
 
-## Seções
+## O que a página faz
 
-- Hero com apresentação profissional, links para GitHub, LinkedIn, currículo e contato.
-- Sobre mim com trajetória, formação e atuação como instrutor de tecnologia.
-- Projeto em Destaque para o PeopleCore.
-- Projetos selecionados em carrossel com cards responsivos.
-- Tecnologias organizadas por front-end, back-end e ferramentas.
-- Minha trajetória em timeline simples.
-- Alternância entre tema claro e escuro.
-- Contato com redes sociais e formulário.
+- Informa que o portfólio antigo foi arquivado.
+- Mantém um botão visível para acessar o novo portfólio.
+- Redireciona automaticamente para `https://kefilwe.dev/` após 5 segundos.
+- Mantém links menores para GitHub, LinkedIn e e-mail.
 
-## Tecnologias
+## Stack mantida
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
-- Swiper.js
-- FormSubmit
-- GitHub API
 
-## Como rodar
+## Rodar localmente
 
-Como o projeto é estático, basta abrir o arquivo `index.html` no navegador.
+Abra o arquivo `index.html` no navegador.
 
-Para uma experiência melhor durante o desenvolvimento, use a extensão Live Server no VS Code:
+## Deploy
 
-1. Abra a pasta do projeto no VS Code.
-2. Clique com o botão direito em `index.html`.
-3. Selecione `Open with Live Server`.
+O deploy é feito somente pelo GitHub Pages.
 
-## Pontos para revisar
+Ao fazer push na branch `main`, o workflow `.github/workflows/static.yml` publica os arquivos estáticos da raiz do repositório.
 
-- Confirmar se o Save Drive também tem repositório público para adicionar ao card.
-- Confirmar se o RotaDelas continuará apenas com GitHub, sem deploy público.
-- Confirmar se o arquivo `assets/docs/Curriculo_Kefilwe_Lourenco_dev_fullstack.pdf` é a versão final do currículo.
-- Atualizar imagens caso queira substituir a ilustração atual por foto profissional ou arte nova mantendo a identidade visual.
+## Status
+
+Arquivado como portfólio completo. Mantido somente como redirecionamento para a nova versão.
